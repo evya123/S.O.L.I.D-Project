@@ -6,13 +6,16 @@
 
 bool FileCacheManager::addAnswerAndQuestion(std::string question,
                                             std::string answer) {
-    //TODO
+    if (isExist(question))
+        return false; //pair is already exist
+    m_cacheMap.insert(std::make_pair(question, answer));
+    return true;
 }
 
 std::string FileCacheManager::getAnswer(std::string question) {
-    //TODO
+    return m_cacheMap.at(question);
 }
 
-bool FileCacheManager::isItem(const std::string &item) const {
-    //TODO
+bool FileCacheManager::isExist(const std::string &question) const {
+    return !(m_cacheMap.find(question) == m_cacheMap.end());
 }

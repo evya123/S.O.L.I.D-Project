@@ -14,7 +14,7 @@ class FileCacheManager : public CacheManager<std::string, std::string> {
 private:
     std::unordered_map<std::string, std::string> m_cacheMap;
 public:
-    bool isItem(const std::string &item) const override;
+    bool isExist(const std::string &question) const override;
 
     std::string getAnswer(std::string question) override;
 
