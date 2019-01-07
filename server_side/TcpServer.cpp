@@ -12,7 +12,7 @@
  */
 int TcpServer::setup(int port) {
     int opt = 1;
-    struct sockaddr_in server, client;
+    struct sockaddr_in server;
 
     // Creating socket file descriptor
     if ((m_serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == 0) {
