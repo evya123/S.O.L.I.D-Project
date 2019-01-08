@@ -8,22 +8,17 @@
 
 #define MAXPACKETSIZE 256
 
-class TcpServer {
-public:
-    TcpServer() = default;
+namespace server_side {
+    class TcpServer {
+    public:
+        TcpServer() = default;
 
-    int setup(int port);
+        int setup(int port);
 
-  //  int receive();
+        void detach();
 
-    void detach();
-
-
-
-private:
-    int m_serverSocket, m_accVal;
-    struct sockaddr_in m_serverAddress;
-    struct sockaddr_in m_clientAddress;
-};
-
+    private:
+        int m_serverSocket, m_accVal;
+    };
+}
 #endif //UAV_PROJECT_TCPSERVER_H

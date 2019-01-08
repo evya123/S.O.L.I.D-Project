@@ -10,7 +10,7 @@
  * bind the socket to the port and ip and the make the server
  * listen to the port and wait for connection.
  */
-int TcpServer::setup(int port) {
+int server_side::TcpServer::setup(int port) {
     int opt = 1;
     struct sockaddr_in server;
 

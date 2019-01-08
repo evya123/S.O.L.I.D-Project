@@ -6,7 +6,6 @@
 #define S_O_L_I_D_CACHEMANAGER_H
 
 template<class Question, class Answer>
-
 class CacheManager {
 
 public:

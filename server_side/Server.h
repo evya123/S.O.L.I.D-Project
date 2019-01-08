@@ -7,10 +7,13 @@
 
 #include "ClientHandler.h"
 
-class Server {
-    virtual void open(int port, ClientHandler clientHandler) = 0;
+namespace server_side {
+    class Server {
+        virtual void open(int port, server_side::ClientHandler* clientHandler) = 0;
 
-    virtual void stop() = 0;
+        virtual void accept() = 0;
+
+        virtual void stop() = 0;
+    };
 };
-
 #endif //SOLID_SERVER_H

@@ -4,7 +4,7 @@
 
 #include "FileCacheManager.h"
 
-bool FileCacheManager::addAnswerAndQuestion(std::string question,
+bool server_side::FileCacheManager::addAnswerAndQuestion(std::string question,
                                             std::string answer) {
     if (isExist(question))
         return false; //pair is already exist
@@ -12,10 +12,10 @@ bool FileCacheManager::addAnswerAndQuestion(std::string question,
     return true;
 }
 
-std::string FileCacheManager::getAnswer(std::string question) {
+std::string server_side::FileCacheManager::getAnswer(std::string question) {
     return m_cacheMap.at(question);
 }
 
-bool FileCacheManager::isExist(const std::string &question) const {
+bool server_side::FileCacheManager::isExist(const std::string &question) const {
     return !(m_cacheMap.find(question) == m_cacheMap.end());
 }
