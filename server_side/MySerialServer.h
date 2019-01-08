@@ -3,9 +3,10 @@
 #define SOLID_MYSERIALSERVER_H
 
 #include "Server.h"
-#include <bits/socket.h>
+#include <sys/socket.h>
 #include <netinet/in.h>
 const int sock_val = 1;
+
 namespace server_side {
     class MySerialServer : public Server {
     public:
