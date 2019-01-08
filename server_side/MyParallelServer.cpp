@@ -1,7 +1,7 @@
 
-#include "MySerialServer.h"
+#include "MyParallelServer.h"
 
-void server_side::MySerialServer::open(int port, ClientHandler* clientHandler) {
+void server_side::MyParallelServer::open(int port, ClientHandler* clientHandler) {
     if ((m_serverSocket = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == 0) {
         perror("socket failed");
         exit(EXIT_FAILURE);
@@ -28,10 +28,10 @@ void server_side::MySerialServer::open(int port, ClientHandler* clientHandler) {
     }
 }
 
-void server_side::MySerialServer::accept() {
+void server_side::MyParallelServer::accept() {
     //TODO
 }
 
-void server_side::MySerialServer::stop() {
+void server_side::MyParallelServer::stop() {
     //TODO
 }

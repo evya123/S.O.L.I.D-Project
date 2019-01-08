@@ -8,7 +8,7 @@
 const int sock_val = 1;
 
 namespace server_side {
-    class MySerialServer : public Server {
+    class MyParallelServer : public Server {
     public:
         void open(int port, server_side::ClientHandler* clientHandler) override;
 
