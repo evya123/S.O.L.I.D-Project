@@ -3,3 +3,13 @@
 //
 
 #include "Searcher.h"
+
+std::string Searcher::search(ISearchable<State<std::pair<int, int>>> searchable) {
+    //DFS
+    //BFS
+    //A*
+}
+
+int Searcher::getNumberOfNodesEvaluated() {
+    return 0;
+}

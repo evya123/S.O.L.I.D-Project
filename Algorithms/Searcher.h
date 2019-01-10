@@ -11,8 +11,15 @@
 #include <string>
 
 class Searcher : public ISearcher<std::string, State<std::pair<int, int >>> {
-private:
+public:
+    std::string search(ISearchable<State<std::pair<int, int>>> searchable) override;
 
+    int getNumberOfNodesEvaluated() override;
+
+private:
+    //DFS
+    //BFS
+    //A*
 };
 
 
