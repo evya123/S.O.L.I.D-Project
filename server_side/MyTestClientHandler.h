@@ -8,11 +8,15 @@
 #include "ClientHandler.h"
 #include "Solver.h"
 #include "CacheManager.h"
+#include <unistd.h>
 #include <string>
+#include <cstring>
+
+#define MAXPACKETSIZE 1024
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
-        void handleClient(std::ofstream inputstream, std::ostream outputStream) override;
+        void handleClient(int sockID) override;
 
     private:
         Solver<std::string, std::string> *solver;

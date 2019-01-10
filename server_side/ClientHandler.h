@@ -10,7 +10,7 @@
 namespace server_side {
     class ClientHandler {
     public:
-        virtual void handleClient(std::ofstream inputstream, std::ostream outputStream) = 0;
+        virtual void handleClient(int sockID) = 0;
     };
 }
 #endif //S_O_L_I_D_CLIENTHANDLER_H
