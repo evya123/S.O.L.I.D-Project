@@ -16,6 +16,10 @@ private:
     double m_cost;
     State *m_cameFrom;
 public:
+    T getState() {
+        return m_state;
+    }
+
     State(T s) : m_state(s) {};
 
     void setCost(double c) {
@@ -25,6 +29,24 @@ public:
     void setCameFrom(State *st) {
         m_cameFrom = st;
     }
+
+    State operator>(const State &st2) const {
+        return (m_cost > st2.getCost());
+    }
+
+    State operator<(const State &st2) {
+        return (m_cost < st2.getCost());
+    }
+
+    State operator==(const State &st2) {
+        return (m_cost == st2.getCost());
+    }
+
+    double getCost() {
+        return m_cost;
+    }
+
+
 };
 
 

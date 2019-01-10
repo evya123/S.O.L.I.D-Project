@@ -6,12 +6,15 @@
 #define S_O_L_I_D_ISEARCHABLE_H
 
 #include <list>
+
 template<class T>
 class ISearchable {
 public:
-    T *getInitialState() = 0;
-    T *getGoalState() = 0;
-    std::list<T> getAllPossibleStates(T) = 0;
+    virtual T getInitialState() = 0;
+
+    virtual T getGoalState() = 0;
+
+    virtual std::vector<T> getAllPossibleStates(T) = 0;
 
 
 };
