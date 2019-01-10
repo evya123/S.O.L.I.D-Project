@@ -6,7 +6,7 @@
 #define S_O_L_I_D_MYTESTCLIENTHANDLER_H
 
 #include "ClientHandler.h"
-#include "Solver.h"
+#include "Input/Solver.h"
 #include "CacheManager.h"
 #include <unistd.h>
 #include <string>
@@ -21,7 +21,6 @@ namespace server_side {
     private:
         Solver<std::string, std::string> *solver;
         CacheManager<std::string, std::string> *cache;
-
 
     };
 }

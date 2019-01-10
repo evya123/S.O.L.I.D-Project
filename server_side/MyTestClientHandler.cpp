@@ -12,6 +12,6 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
             close(newsockfd);
             break;
         }
-        //Lexer parser
+
     }
 }
