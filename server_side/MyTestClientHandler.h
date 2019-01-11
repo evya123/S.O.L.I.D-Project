@@ -7,26 +7,34 @@
 
 #include "ClientHandler.h"
 #include "Input/Solver.h"
-#include "CacheManager.h"
+#include "server_side/CacheManager.h"
+#include "server_side/FileCacheManager.h"
 #include <unistd.h>
 #include <string>
 #include <cstring>
-#include <Input/SolverSearcher.h>
-#include "Input/LexerParser.h"
+#include "Input/SolverSearcher.h"
 #include "FileCacheManager.h"
+#include "Algorithms/MatrixSearcher.h"
+#include "Input/LexerParser.h"
+#include "Algorithms/BFS.h"
 
 #define MAXPACKETSIZE 1024
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
-        MyTestClientHandler() { m_lexer = new LexerParser();
-                                m_solver = new SolverSearcher();
-                                m_cache = new FileCacheManager();};
+        MyTestClientHandler() {
+            m_solver = new SolverSearcher<MatrixSearcher<MATRIX_DEF> *>
+                    (new BFS<MatrixSearcher<MATRIX_DEF> *>());
+            m_cache = new FileCacheManager();
+            m_lexer = new LexerParser();
+        };
+
         void handleClient(int sockID) override;
+
     private:
-        Solver<MatrixSearcher*, std::string> *m_solver;
-        CacheManager<std::string,std::pair<MatrixSearcher*, std::string>> *m_cache;
-        LexerParser* m_lexer;
+        Solver<MatrixSearcher<MATRIX_DEF> *, std::string> *m_solver;
+        CacheManager<std::string, std::pair<MatrixSearcher<MATRIX_DEF> *, std::string>> *m_cache;
+        LexerParser *m_lexer;
     };
 }
 

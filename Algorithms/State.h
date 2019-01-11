@@ -15,12 +15,15 @@ private:
     T m_state;
     double m_cost;
     State *m_cameFrom;
+    bool visit;
 public:
     T getState() {
         return m_state;
     }
 
-    State(T s) : m_state(s) {};
+    State(T s) : m_state(s) {
+        visit = false;
+    };
 
     void setCost(double c) {
         m_cost = c;

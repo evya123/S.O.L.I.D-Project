@@ -5,12 +5,11 @@
 #ifndef S_O_L_I_D_ISEARCHER_H
 #define S_O_L_I_D_ISEARCHER_H
 
-#include "ISearchable.h"
-
-template<class Solution, class T>
+#include <string>
+template<class P>
 class ISearcher {
 public:
-    virtual Solution search(ISearchable<T> *searchable) = 0;
+    virtual std::string search(P) = 0;
 
     virtual int getNumberOfNodesEvaluated() = 0;
 };

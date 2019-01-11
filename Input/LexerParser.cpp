@@ -4,9 +4,9 @@
 
 #include "LexerParser.h"
 
-std::vector<State<PAIR > *>
+std::vector<MATRIX_DEF>
 LexerParser::LexerMatrix(std::string line, int iVecNum) {
-    std::vector<State<PAIR > *> result;
+    std::vector<MATRIX_DEF> result;
     int j = 0;
     unsigned long size;
     while (size = line.size()) {

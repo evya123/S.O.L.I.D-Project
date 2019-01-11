@@ -11,11 +11,11 @@
 template<class T>
 class ISearchable {
 public:
-    virtual T *getInitialState() = 0;
+    virtual T getInitialState() = 0;
 
-    virtual T *getGoalState() = 0;
+    virtual T getGoalState() = 0;
 
-    virtual std::vector<T*> getAllPossibleStates(T) = 0;
+    virtual std::vector<T> getAllPossibleStates(int i, int j) = 0;
 
 
 };
