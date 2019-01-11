@@ -14,6 +14,7 @@ iVecNum) {
             State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
             result.push_back(state);
             line = line.substr(index + 1);
+            ++j;
         }
         return result;
     }
