@@ -34,7 +34,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
                 break;
         }
     }
-    MatrixSearcher* problem = new MatrixSearcher(allCombined,tmpS,tmpE);
+    MatrixSearcher* problem = new MatrixSearcher(allCombined,&tmpS,&tmpE);
     std::string solution = m_solver->solve(problem);
     m_cache->addAnswerAndQuestion(problem,solution);
 }
