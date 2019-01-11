@@ -8,10 +8,13 @@
 #include <string>
 #include <vector>
 
-template <class T>
+#define PAIR std::pair<int,int>
+
+#include "Algorithms/State.h"
+
 class LexerParser {
 public:
-    std::vector<T> Lexer(std::string ling);
+    std::vector<State<PAIR>*> LexerMatrix(std::string ling, int iVecNum);
 };
 
 

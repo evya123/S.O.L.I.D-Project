@@ -2,37 +2,7 @@
 #include <string>
 #include <stack>
 
-//using namespace std;
-//
-//class timeout_error : public runtime_error {
-//public:
-//    explicit timeout_error (const string& what_arg)
-//        : runtime_error(what_arg){}
-//    explicit timeout_error (const char* what_arg)
-//        : runtime_error(what_arg){}
-//};
-//int recv_client()
-//{
-//
-//}
-//
-//void handle_client(int new_sock)
-//{
-//
-//}
-//
-//namespace boot  {
-//    class Main  {
-//    public:
-//        int main(int argc, char** argv) {
-//            return 0;
-//        }
-//    };
-//}
-//
-//
-//
-//
+
 int main (int argc, char* argv[]){
 //    boot::Main m;
 //    m.main(argc, argv);
