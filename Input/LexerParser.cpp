@@ -4,13 +4,14 @@
 
 #include "LexerParser.h"
 
-std::vector<State<PAIR > *> LexerParser::LexerMatrix(std::string line, int iVecNum) {
+std::vector<State<PAIR > *>
+LexerParser::LexerMatrix(std::string line, int iVecNum) {
     std::vector<State<PAIR > *> result;
     int j = 0;
-    int size;
+    unsigned long size;
     while (size = line.size()) {
         // find the ","
-        int index = line.find(",");
+        unsigned long index = line.find(",");
         if (index != -1) {
             State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
             state->setCost(std::stod(line.substr(0, index)));
@@ -29,6 +30,8 @@ std::vector<State<PAIR > *> LexerParser::LexerMatrix(std::string line, int iVecN
 }
 
 State<PAIR > *LexerParser::LexerInitialAndGoalPoints(std::string line) {
-
-
+    unsigned long index = line.find(",");
+    int first = std::stoi(line.substr(0, index));
+    int second = std::stoi(line.substr(index + 1, line.size()));
+    State<PAIR > *state = new State<PAIR >(PAIR(first, second));
 }

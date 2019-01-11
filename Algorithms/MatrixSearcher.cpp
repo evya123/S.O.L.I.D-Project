@@ -4,17 +4,17 @@
 
 #include "MatrixSearcher.h"
 
-State<PAIR > MatrixSearcher::getGoalState() {
+State<std::pair<int, int>>* MatrixSearcher::getGoalState() {
     return m_goal_state;
 }
 
-State<PAIR > MatrixSearcher::getInitialState() {
+State<std::pair<int, int>> * MatrixSearcher::getInitialState() {
     return m_initial_state;
 }
 
-std::vector<State<PAIR>> MatrixSearcher::getAllPossibleStates(
+std::vector<State<PAIR>*> MatrixSearcher::getAllPossibleStates(
         State<PAIR > t) {
-    std::vector<State<PAIR>> listOfStates;
+    std::vector<State<PAIR>*> listOfStates;
     int i = t.getState().first;
     int j = t.getState().second;
     int size = m_Matrix.size();

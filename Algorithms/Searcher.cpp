@@ -4,7 +4,8 @@
 
 #include "Searcher.h"
 
-std::string Searcher::search(ISearchable<State<std::pair<int, int>>> searchable) {
+std::string Searcher::search(ISearchable<State<std::pair<int, int>>>
+                             *searchable) {
     //DFS
     //BFS
     //A*
