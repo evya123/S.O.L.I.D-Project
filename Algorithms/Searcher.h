@@ -12,7 +12,7 @@
 
 class Searcher : public ISearcher<std::string, State<std::pair<int, int >>> {
 public:
-    std::string search(ISearchable<State<std::pair<int, int>>>* searchable) override;
+    std::string search(ISearchable<State<std::pair<int, int>>> searchable) override;
 
     int getNumberOfNodesEvaluated() override;
 

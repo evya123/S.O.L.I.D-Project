@@ -1,27 +1,20 @@
 #include <thread>
 #include <string>
 #include <stack>
+#include <Input/LexerParser.h>
 
+#define PAIR std::pair<int,int>
 
-int main (int argc, char* argv[]){
-//    boot::Main m;
-//    m.main(argc, argv);
-//    stack<thread> st;
-//    // Parallel
-//    while (true)    {
-//        try {
-//            int new_sock = recv_client();
-//            thread t(handle_client, new_sock);
-//            st.push(t);
-//        }   catch (timeout_error& e) {
-//            break;
-//        }
-//    }
-//
-//    while (!st.empty()) {
-//        st.top().join();
-//        st.pop();
-//    }
-//
-//    return 0;
+int main(int argc, char *argv[]) {
+
+    std::string check = argv[1];
+    LexerParser *lxpar = new LexerParser();
+    std::vector<std::vector<State<PAIR > *>> result;
+    int i = 0;
+    while (check != "end") {
+        result.push_back(lxpar->LexerMatrix(check, i));
+        ++i;
+    }
+
+    return 0;
 }

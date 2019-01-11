@@ -7,18 +7,28 @@
 std::vector<State<PAIR > *> LexerParser::LexerMatrix(std::string line, int iVecNum) {
     std::vector<State<PAIR > *> result;
     int j = 0;
-    while (line.size()) {
+    int size;
+    while (size = line.size()) {
+        // find the ","
         int index = line.find(",");
-        if (index != std::string::npos) {
+        if (index != -1) {
             State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
+            state->setCost(std::stod(line.substr(0, index)));
             result.push_back(state);
             line = line.substr(index + 1);
             ++j;
+            // its the last state
+        } else {
+            State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
+            state->setCost(std::stod(line.substr(0, size)));
+            result.push_back(state);
+            line = "";
         }
-        return result;
     }
+    return result;
 }
 
 State<PAIR > *LexerParser::LexerInitialAndGoalPoints(std::string line) {
+
 
 }
