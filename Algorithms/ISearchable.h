@@ -6,6 +6,7 @@
 #define S_O_L_I_D_ISEARCHABLE_H
 
 #include <list>
+#include "vector"
 
 template<class T>
 class ISearchable {

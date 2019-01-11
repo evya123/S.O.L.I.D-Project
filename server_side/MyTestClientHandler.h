@@ -11,16 +11,20 @@
 #include <unistd.h>
 #include <string>
 #include <cstring>
+#include "Input/LexerParser.h"
 
 #define MAXPACKETSIZE 1024
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
+        MyTestClientHandler() { m_lexer = new LexerParser();};
         void handleClient(int sockID) override;
 
     private:
-        Solver<std::string, std::string> *solver;
-        CacheManager<std::string, std::string> *cache;
+        Solver<MatrixSearcher*, std::string> *m_solver;
+        CacheManager<std::string, std::string> *m_cache;
+        LexerParser* m_lexer;
+
 
     };
 }

@@ -7,10 +7,9 @@
 
 #include <string>
 #include <vector>
+#include "Algorithms/State.h"
 
 #define PAIR std::pair<int,int>
-
-#include "Algorithms/State.h"
 
 class LexerParser {
 public:

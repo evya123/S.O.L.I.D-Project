@@ -10,7 +10,7 @@
 template <class Problem, class Soultion>
 class Solver {
 public:
-    virtual std::string solve(std::string problem, Searcher *search) = 0 ;
+    virtual Soultion solve(Problem) = 0 ;
 };
 
 #endif //S_O_L_I_D_SOLVER_H

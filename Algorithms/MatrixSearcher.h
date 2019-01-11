@@ -14,13 +14,13 @@
 
 class MatrixSearcher : public ISearchable<State<PAIR>> {
 private:
-    std::vector<std::vector<State<PAIR>>> m_Matrix;
-    State<PAIR > m_initial_state;
-    State<PAIR > m_goal_state;
+    std::vector<std::vector<State<PAIR>*>> m_Matrix;
+    State<PAIR>* m_initial_state;
+    State<PAIR>* m_goal_state;
 public:
-    MatrixSearcher(std::vector<std::vector<State<PAIR>>> matrix,
-                   State<PAIR > initial,
-                   State<PAIR > goal) : m_initial_state(initial),
+    MatrixSearcher(std::vector<std::vector<State<PAIR>*>>& matrix,
+                   State<PAIR>* initial,
+                   State<PAIR>* goal) : m_initial_state(initial),
                                         m_goal_state(goal) {
         m_Matrix = matrix;
     }
