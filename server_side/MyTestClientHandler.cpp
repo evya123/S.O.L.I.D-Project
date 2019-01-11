@@ -1,18 +1,20 @@
 
 #include <Algorithms/MatrixSearcher.h>
 #include "MyTestClientHandler.h"
-
 void server_side::MyTestClientHandler::handleClient(int sockID) {
     int newsockfd = sockID;
     std::vector<std::vector<State<PAIR>*>> allCombined;
     int n;
-    int counter = 0;
-    std::string line (MAXPACKETSIZE,0);
-    State<PAIR>* tmpS;
-    State<PAIR>* tmpE;
-    while (line != "end") {
-        line.clear();
-        n = read(newsockfd, &line[0], MAXPACKETSIZE);
+    int counter = 0, matrixCounter = 0;
+    char line[MAXPACKETSIZE];
+    PAIR tmpS;
+    PAIR tmpE;
+    while (true) {
+        memset(line, 0, MAXPACKETSIZE);
+        n = read(newsockfd, line, MAXPACKETSIZE);
+        if (!strcmp(line,"end"))
+            break;
+        line[n] = 0;
         if (n == 0) {
             close(newsockfd);
             break;
@@ -27,11 +29,12 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
                 counter++;
                 break;
             default:
-                allCombined.push_back(m_lexer->LexerMatrix(line,counter));
-                counter++;
+                allCombined.push_back(m_lexer->LexerMatrix(line,matrixCounter));
+                matrixCounter++;
                 break;
         }
     }
     MatrixSearcher* problem = new MatrixSearcher(allCombined,tmpS,tmpE);
-    m_solver->solve(problem);
+    std::string solution = m_solver->solve(problem);
+    m_cache->addAnswerAndQuestion(problem,solution);
 }

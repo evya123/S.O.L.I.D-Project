@@ -8,7 +8,7 @@
 #include <cstring>
 #include <unistd.h>
 
-#define FAILD 0
+#define FAILD -1
 #define QUEUE_SIZE 50
 
 const int sock_val = 1;

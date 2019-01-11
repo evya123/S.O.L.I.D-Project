@@ -9,6 +9,7 @@
 
 namespace server_side {
     class Server {
+    public:
         virtual void open(int port, server_side::ClientHandler* clientHandler) = 0;
 
         virtual int acceptClient() = 0;

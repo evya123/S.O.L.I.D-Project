@@ -7,18 +7,18 @@
 
 #include <string>
 #include <unordered_map>
-
+#include <Algorithms/MatrixSearcher.h>
 #include "CacheManager.h"
 namespace server_side {
-    class FileCacheManager : public CacheManager<std::string, std::string> {
+    class FileCacheManager : public CacheManager<MatrixSearcher*, std::string> {
     private:
-        std::unordered_map<std::string, std::string> m_cacheMap;
+        std::unordered_map<MatrixSearcher*, std::string> m_cacheMap;
     public:
-        bool isExist(const std::string &question) const override;
+        bool isExist(MatrixSearcher *const item) const override;
 
-        std::string getAnswer(std::string question) override;
+        std::string getAnswer(MatrixSearcher* question) override;
 
-        bool addAnswerAndQuestion(std::string question, std::string answer) override;
+        bool addAnswerAndQuestion(MatrixSearcher*, std::string answer) override;
 
 
     };

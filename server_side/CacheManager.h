@@ -9,7 +9,7 @@ template<class Question, class Answer>
 class CacheManager {
 
 public:
-    virtual bool isExist(const Question &item) const = 0;
+    virtual bool isExist(const Question item) const = 0;
 
     virtual Answer getAnswer(Question question) = 0;
 

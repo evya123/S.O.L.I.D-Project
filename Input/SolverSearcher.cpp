@@ -4,6 +4,6 @@
 
 #include "SolverSearcher.h"
 
-std::string SolverSearcher::solve(std::vector<std::vector<State<PAIR > *>> problem) {
+std::string SolverSearcher::solve(MatrixSearcher* problem) {
     //TODO
 }
