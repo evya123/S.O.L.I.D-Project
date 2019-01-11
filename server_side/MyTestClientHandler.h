@@ -25,7 +25,7 @@ namespace server_side {
         void handleClient(int sockID) override;
     private:
         Solver<MatrixSearcher*, std::string> *m_solver;
-        CacheManager<MatrixSearcher*, std::string> *m_cache;
+        CacheManager<std::string,std::pair<MatrixSearcher*, std::string>> *m_cache;
         LexerParser* m_lexer;
     };
 }

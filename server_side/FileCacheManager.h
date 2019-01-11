@@ -9,18 +9,19 @@
 #include <unordered_map>
 #include <Algorithms/MatrixSearcher.h>
 #include "CacheManager.h"
+
 namespace server_side {
-    class FileCacheManager : public CacheManager<MatrixSearcher*, std::string> {
+    class FileCacheManager : public CacheManager<std::string,std::pair<MatrixSearcher*, std::string>> {
     private:
-        std::unordered_map<MatrixSearcher*, std::string> m_cacheMap;
+        std::unordered_map<std::string,std::pair<MatrixSearcher*, std::string>> m_cacheMap;
+        std::pair<MatrixSearcher *, std::string> getAnswer(const std::string &question) const override;
     public:
-        bool isExist(MatrixSearcher *const item) const override;
+        std::string returnAnswer(const std::string &question) const;
 
-        std::string getAnswer(MatrixSearcher* question) override;
+        bool isExist(const std::string &item) const override;
 
-        bool addAnswerAndQuestion(MatrixSearcher*, std::string answer) override;
-
-
+        bool addAnswerAndQuestion(const std::string &question,
+                                    const std::pair<MatrixSearcher *, std::string> &answer) override;
     };
 }
 

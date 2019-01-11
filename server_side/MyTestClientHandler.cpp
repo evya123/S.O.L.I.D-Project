@@ -6,6 +6,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     std::vector<std::vector<State<PAIR>*>> allCombined;
     int n;
     int counter = 0, matrixCounter = 0;
+    std::string sumOfAll = "";
     char line[MAXPACKETSIZE];
     PAIR tmpS;
     PAIR tmpE;
@@ -19,6 +20,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
             close(newsockfd);
             break;
         }
+        sumOfAll += line;
         switch (counter){
             case 0:
                 counter++;
@@ -36,5 +38,5 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     }
     MatrixSearcher* problem = new MatrixSearcher(allCombined,&tmpS,&tmpE);
     std::string solution = m_solver->solve(problem);
-    m_cache->addAnswerAndQuestion(problem,solution);
+    m_cache->addAnswerAndQuestion(sumOfAll,std::make_pair(problem,solution));
 }
