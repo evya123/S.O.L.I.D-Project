@@ -19,3 +19,7 @@ iVecNum) {
         return result;
     }
 }
+
+State<PAIR > *LexerParser::LexerInitialAndGoalPoints(std::string line) {
+
+}
