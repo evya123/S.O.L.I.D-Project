@@ -19,10 +19,11 @@ private:
     State<PAIR > *m_goal_state;
 public:
     MatrixSearcher(std::vector<std::vector<State<PAIR > *>> &matrix,
-                   State<PAIR > *initial,
-                   State<PAIR > *goal) : m_initial_state(initial),
-                                         m_goal_state(goal) {
+                   PAIR *initial,
+                   PAIR *goal) {
         m_Matrix = matrix;
+        m_initial_state = m_Matrix[initial->first][initial->second];
+        m_goal_state = m_Matrix[goal->first][goal->second];
     }
 
     virtual State<std::pair<int, int>> *getGoalState();
