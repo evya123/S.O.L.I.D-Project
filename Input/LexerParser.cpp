@@ -29,9 +29,9 @@ LexerParser::LexerMatrix(std::string line, int iVecNum) {
     return result;
 }
 
-State<PAIR > *LexerParser::LexerInitialAndGoalPoints(std::string line) {
+std::pair<int, int> LexerParser::LexerInitialAndGoalPoints(std::string line) {
     unsigned long index = line.find(",");
     int first = std::stoi(line.substr(0, index));
     int second = std::stoi(line.substr(index + 1, line.size()));
-    State<PAIR > *state = new State<PAIR >(PAIR(first, second));
+    return std::make_pair(first, second);
 }

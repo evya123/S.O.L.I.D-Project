@@ -15,7 +15,7 @@ class LexerParser {
 public:
     std::vector<State<PAIR > *> LexerMatrix(std::string ling, int iVecNum);
 
-    State<PAIR > *LexerInitialAndGoalPoints(std::string line);
+    std::pair<int, int> LexerInitialAndGoalPoints(std::string line);
 };
 
 
