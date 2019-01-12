@@ -10,11 +10,11 @@
 #include "ISearchable.h"
 #include "State.h"
 
-typedef std::vector<std::vector<State*>>::iterator MatrixIter;
+typedef std::vector<std::vector<State *>>::iterator MatrixIter;
 
-class MatrixSearcher : public ISearchable<State*> {
+class MatrixSearcher : public ISearchable<State *> {
 private:
-    std::vector<std::vector<State*>> m_Matrix;
+    std::vector<std::vector<State *>> m_Matrix;
     State *m_initial_state;
     State *m_goal_state;
     MatrixIter m_begin;
@@ -38,9 +38,9 @@ public:
         return m_initial_state;
     }
 
-    virtual std::vector<State*> getAllPossibleStates(int j, int i) override {
-        std::vector<State*> listOfStates;
-        int size = m_Matrix.size();
+    virtual std::vector<State *> getAllPossibleStates(int i, int j) override {
+        std::vector<State *> listOfStates;
+        int size = m_Matrix.size() - 1;
         if (i > 0 && i <= size) {
             listOfStates.push_back(m_Matrix[i - 1][j]);
         }
