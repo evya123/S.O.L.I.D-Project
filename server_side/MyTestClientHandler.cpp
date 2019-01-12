@@ -32,7 +32,8 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
                 counter++;
                 break;
             default:
-                allCombined->push_back(m_lexer->LexerMatrix(line,
+                std::string tmp = line;
+                allCombined->push_back(m_lexer->LexerMatrix(tmp,
                         matrixCounter));
                 matrixCounter++;
                 break;
