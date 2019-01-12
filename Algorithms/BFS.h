@@ -16,25 +16,24 @@ public:
     }
 
     std::string search(ISearchable<State> *searchable) override {
-        std::cout << " 0 " << std::endl;
-        std::queue<State> queue;
-        std::cout << " 1 " << std::endl;
-        State current = searchable->getInitialState();
-        std::cout << " 2 " << std::endl;
-        State end = searchable->getGoalState();
-        std::cout << " 3 " << std::endl;
-        if (current.getPlace().first == -1 && current.getCost() > 0) {
-            std::cout << " 4 " << std::endl;
 
-            ++m_numOfNodes;
+        std::vector<State> path;
+        std::queue<State> queue;
+        State current = searchable->getInitialState();
+        State end = searchable->getGoalState();
+        if (current.getPlace().first != -1 && current.getCost() > 0) {
+            std::cout << " nodes : " << m_numOfNodes << " value : "
+                      << current.getCost() << std::endl;
+            current.setVisit(true);
+            queue.push(current);
         }
         std::vector<State> neighbors;
         while (!queue.empty()) {
+            current = queue.front();
+            queue.pop();
             if (current == end) {
                 break;
             }
-            current = queue.front();
-            queue.pop();
             neighbors = searchable->getAllPossibleStates(current.getPlace()
                                                                  .first,
                                                          current.getPlace()
@@ -42,12 +41,17 @@ public:
             State *tmp;
             for (int k = 0; k < neighbors.size(); ++k) {
                 *tmp = neighbors[k];
-                if (tmp->getCost() != -1) {
+                std::cout << tmp->getCost() << " is neighbor of :" <<
+                          current.getCost() << std::endl;
+                if (tmp->getCost() != -1 && !tmp->isVisit()) {
                     queue.push(*tmp);
                     tmp->setCameFrom(&current);
                     tmp->setVisit(true);
                 }
             }
+            std::cout << " nodes : " << m_numOfNodes << " value : "
+                      << current.getCost() << std::endl;
+
             ++m_numOfNodes;
         }
         return "manmanmanmaniak";
