@@ -40,17 +40,20 @@ public:
 
     virtual std::vector<State *> getAllPossibleStates(int i, int j) override {
         std::vector<State *> listOfStates;
-        int size = m_Matrix.size() - 1;
-        if (i > 0 && i <= size) {
+
+        int jSize = m_Matrix[0].size() - 1;
+        int iSize = m_Matrix.size() - 1;
+
+        if (i > 0 && i <= iSize) {
             listOfStates.push_back(m_Matrix[i - 1][j]);
         }
-        if (i >= 0 && i < size) {
+        if (i >= 0 && i < iSize) {
             listOfStates.push_back(m_Matrix[i + 1][j]);
         }
-        if (j > 0 && j <= size) {
+        if (j > 0 && j <= jSize) {
             listOfStates.push_back(m_Matrix[i][j - 1]);
         }
-        if (j >= 0 && j < size) {
+        if (j >= 0 && j < jSize) {
             listOfStates.push_back(m_Matrix[i][j + 1]);
         }
         return listOfStates;

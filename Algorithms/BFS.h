@@ -41,6 +41,16 @@ public:
             for (int k = 0; k < neighbors.size(); ++k) {
                 tmp = neighbors[k];
                 if (tmp->getCost() != -1 && !tmp->isVisit()) {
+                    if (tmp == end) {
+                        tmp->setCameFrom(current);
+                        tmp->setVisit(true);
+                        ++m_numOfNodes;
+                        current = tmp;
+                        while (!queue.empty()) {
+                            queue.pop();
+                        }
+                        break;
+                    }
                     queue.push(tmp);
                     tmp->setCameFrom(current);
                     tmp->setVisit(true);
@@ -48,10 +58,43 @@ public:
             }
 
             ++m_numOfNodes;
-            std::cout << " nodes : " << m_numOfNodes << " value : "
-                      << current->getCost() << std::endl;
         }
-        return "manmanmanmaniak";
+        /// print path
+        std::string res = "";
+        State *tmp1 = current;
+        int i1;
+        int i2;
+        int j1;
+        int j2;
+        std::cout << tmp1->getCost() << std::endl;
+        i1 = tmp1->getPlace().first;
+        i2 = tmp1->getCameFrom()->getPlace().first;
+        j1 = tmp1->getPlace().second;
+        j2 = tmp1->getCameFrom()->getPlace().second;
+        if (j1 == j2) {
+            i1 > i2 ? res = ", Down " + res : res = ", UP " + res;
+        } else {
+            j1 > j2 ? res = ", Right " + res : res = ", Left " + res;
+        }
+        tmp1 = tmp1->getCameFrom();
+        while (tmp1 != searchable->getInitialState()) {
+            std::cout << tmp1->getCost() << std::endl;
+            i1 = tmp1->getPlace().first;
+            i2 = tmp1->getCameFrom()->getPlace().first;
+            j1 = tmp1->getPlace().second;
+            j2 = tmp1->getCameFrom()->getPlace().second;
+            if (j1 == j2) {
+                i1 > i2 ? res = ", Down " + res : res = ", UP " + res;
+            } else {
+                j1 > j2 ? res = ", Right " + res : res = ", Left " + res;
+            }
+            tmp1 = tmp1->getCameFrom();
+        }
+        res.erase(0, 2);
+        std::cout << res << std::endl;
+
+
+        return "res";
     }
 
     int getNumberOfNodesEvaluated() override {

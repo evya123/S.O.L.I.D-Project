@@ -49,12 +49,25 @@ public:
         return (m_cost == st2.getCost());
     }
 
+    State &operator=(const State &st2) {
+        this->m_place.first = st2.m_place.first;
+        this->m_place.first = st2.m_place.second;
+        this->m_cost = st2.m_cost;
+        this->m_cameFrom = st2.m_cameFrom;
+        this->m_visit = st2.m_visit;
+        return *this;
+    }
+
     void setVisit(const bool visit) {
         m_visit = visit;
     }
 
     bool isVisit() {
         return m_visit;
+    }
+
+    State *getCameFrom() {
+        return m_cameFrom;
     }
 
 };
