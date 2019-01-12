@@ -6,17 +6,28 @@
 #define S_O_L_I_D_BFS_H
 
 #include <queue>
+
 template<class T>
 class BFS : public ISearcher<T> {
 private:
     int m_numOfNodes;
 public:
-    BFS(){
+    BFS() {
         m_numOfNodes = 0;
     }
 
     std::string search(ISearchable<T> *searchable) override {
-        return std::__cxx11::string();
+        std::queue<State<T> *> queue;
+        State<T> *current = searchable->getInitialState();
+        State<T> *end = searchable->getGoalState();
+        if (current != nullptr && current->getCost() > 0) {
+            ++m_numOfNodes;
+            queue.push(current);
+        }
+        while (!queue.empty()) {
+
+        }
+
     }
 
     int getNumberOfNodesEvaluated() override {
