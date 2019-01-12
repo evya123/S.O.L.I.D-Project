@@ -49,7 +49,7 @@ public:
         return (m_cost == st2.getCost());
     }
 
-    void setVisit(bool visit) {
+    void setVisit(const bool visit) {
         m_visit = visit;
     }
 

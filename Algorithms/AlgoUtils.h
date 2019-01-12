@@ -7,14 +7,19 @@
 #include "MatrixSearcher.h"
 #include <algorithm>
 #define MATRIX_DEF State
+auto set = [](State& s) { s.setVisit(false);};
 
+auto setVecToFalse = [](std::vector<State>& vec) {
+    std::for_each(vec.begin(), vec.end(),set);};
+template <class T>
 class AlgoUtils {
-protected:
-    void markUnvisited(MatrixSearcher* ms);
+public:
+    void markUnvisited(ISearchable<T>& ms) {
+        auto start = ms.begin();
+        auto end = ms.end();
+        std::for_each(start,end,setVecToFalse);
 
-private:
-    void setVecToFalse(std::vector<State> *vec);
-
+    }
 };
 
 

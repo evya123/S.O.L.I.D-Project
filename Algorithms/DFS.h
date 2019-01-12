@@ -7,10 +7,14 @@
 
 #include "ISearcher.h"
 #include "State.h"
+#include "AlgoUtils.h"
 
 class DFS : public ISearcher<State>{
 public:
     std::string search(ISearchable<State> *searchable) override;
+
+private:
+    AlgoUtils<State> utils;
 };
 
 

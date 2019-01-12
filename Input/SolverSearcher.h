@@ -17,6 +17,7 @@ public:
         m_searcher = searcher;
     };
 
+
     std::string solve(MatrixSearcher *problem) override {
         return m_searcher->search(problem);
     }

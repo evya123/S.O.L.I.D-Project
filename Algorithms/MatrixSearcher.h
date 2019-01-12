@@ -9,19 +9,23 @@
 #include <vector>
 #include "ISearchable.h"
 #include "State.h"
+typedef std::vector<std::vector<State>>::iterator MatrixIter;
 
 class MatrixSearcher : public ISearchable<State> {
 private:
     std::vector<std::vector<State>> m_Matrix;
     State m_initial_state;
     State m_goal_state;
+    MatrixIter m_begin;
+    MatrixIter m_end;
+
 public:
 
     MatrixSearcher(std::vector<std::vector<State>> matrix,
                    std::pair<int, int> *initial, std::pair<int, int> *goal)
                    : m_Matrix(matrix) ,
                    m_initial_state(m_Matrix[initial->first][initial->second]),
-                   m_goal_state(m_Matrix[goal->first][goal->second]){};
+                   m_goal_state(m_Matrix[goal->first][goal->second]){ m_begin = m_Matrix.begin();};
 
 
     virtual State getGoalState() {
@@ -50,7 +54,14 @@ public:
         return listOfStates;
     }
 
-};
 
+    MatrixIter& begin(){
+        return m_begin;
+    }
+
+    MatrixIter& end(){
+        return m_end;
+    }
+};
 
 #endif //S_O_L_I_D_MATRIXSEARCHER_H
