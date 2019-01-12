@@ -18,7 +18,6 @@ namespace server_side {
                     std::string>> {
     private:
         std::unordered_map<std::string, std::pair<MatrixSearcher<MATRIX_DEF > *, std::string>> m_cacheMap;
-
         std::pair<MatrixSearcher<MATRIX_DEF > *, std::string>
         getAnswer(const std::string &question) const override;
 
