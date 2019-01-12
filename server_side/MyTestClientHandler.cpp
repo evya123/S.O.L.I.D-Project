@@ -33,7 +33,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
                 break;
             default:
                 allCombined->push_back(m_lexer->LexerMatrix(line,
-                                                           matrixCounter));
+                        matrixCounter));
                 matrixCounter++;
                 break;
         }

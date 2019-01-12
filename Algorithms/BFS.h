@@ -7,7 +7,7 @@
 
 #include <queue>
 
-template<class T, class S>
+template<class T>
 class BFS : public ISearcher<T> {
 private:
     int m_numOfNodes;
@@ -17,17 +17,32 @@ public:
     }
 
     std::string search(ISearchable<T> *searchable) override {
-        std::queue<State*> queue;
+        std::queue<State *> queue;
         State *current = searchable->getInitialState();
         State *end = searchable->getGoalState();
         if (current != nullptr && current->getCost() > 0) {
             ++m_numOfNodes;
-            queue.push(current);
         }
-        std::vector<State*> neighbors;
+        std::vector<State *> neighbors;
         while (!queue.empty()) {
+            if (current == end) {
+                break;
+            }
+            current = queue.front();
+            queue.pop();
             neighbors = searchable->getAllPossibleStates(current->getPlace()
-                    .first, current->getPlace().second);
+                                                                 .first,
+                                                         current->getPlace().second);
+            State *tmp;
+            for (int k = 0; k < neighbors.size(); ++k) {
+                tmp = neighbors[k];
+                if (tmp->getCost() != -1) {
+                    queue.push(tmp);
+                    tmp->setCameFrom(current);
+                    tmp->setVisit(true);
+                }
+            }
+            ++m_numOfNodes;
         }
     }
 

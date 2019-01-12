@@ -5,7 +5,7 @@
 #include "LexerParser.h"
 
 std::vector<MATRIX_DEF>
-LexerParser::LexerMatrix(std::string line, int iVecNum) {
+LexerParser::LexerMatrix(std::string &line, int iVecNum) {
     std::vector<MATRIX_DEF> result;
     int j = 0;
     unsigned long size;

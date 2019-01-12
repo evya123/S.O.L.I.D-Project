@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include "Algorithms/State.h"
+
 #define MATRIX_DEF State*
 
 #define PAIR std::pair<int,int>
@@ -15,7 +16,8 @@
 
 class LexerParser {
 public:
-    std::vector<State*> LexerMatrix(std::string ling, int iVecNum);
+    std::vector<State *> LexerMatrix(std::string &ling, int iVecNum);
+
     std::pair<int, int> LexerInitialAndGoalPoints(std::string line);
 };
 
