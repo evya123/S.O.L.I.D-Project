@@ -9,18 +9,18 @@
 #include "Algorithms/ISearcher.h"
 
 class SolverSearcher
-        : public Solver<MatrixSearcher<MATRIX_DEF> *, std::string> {
+        : public Solver<MatrixSearcher *, std::string> {
 private:
-    ISearcher<MATRIX_DEF> *m_searcher;
+    ISearcher<State> *m_searcher;
 public:
     SolverSearcher() {};
 
-    void setSercher(ISearcher<MATRIX_DEF> *searcher) {
+    void setSercher(ISearcher<State> *searcher) {
         m_searcher = searcher;
     }
 
     std::string
-    solve(MatrixSearcher<MATRIX_DEF> *problem) override {
+    solve(MatrixSearcher *problem) override {
         return m_searcher->search(problem);
     }
 };

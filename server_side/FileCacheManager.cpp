@@ -8,14 +8,14 @@ bool server_side::FileCacheManager::isExist(const std::string &key) const {
     return m_cacheMap.find(key) != m_cacheMap.end() ? true : false;
 }
 
-std::pair<MatrixSearcher<MATRIX_DEF> *, std::string>
+std::pair<MatrixSearcher *, std::string>
         server_side::FileCacheManager::getAnswer
                                                 (const std::string &key) const {
     return m_cacheMap.find(key)->second;
 }
 
 bool server_side::FileCacheManager::addAnswerAndQuestion(const std::string &key,
-                                                        const std::pair<MatrixSearcher<MATRIX_DEF> *,
+                                                        const std::pair<MatrixSearcher *,
                                                         std::string> &pair) {
     if (!isExist(key)) {
         m_cacheMap.insert({key, pair});
