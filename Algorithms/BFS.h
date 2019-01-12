@@ -7,7 +7,7 @@
 
 #include <queue>
 
-template<class T>
+template<class T, class S>
 class BFS : public ISearcher<T> {
 private:
     int m_numOfNodes;
@@ -24,7 +24,9 @@ public:
             ++m_numOfNodes;
             queue.push(current);
         }
+        std::vector<State<T> *> neighbors;
         while (!queue.empty()) {
+
 
         }
 

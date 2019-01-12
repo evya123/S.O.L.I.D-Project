@@ -5,6 +5,7 @@
 #ifndef S_O_L_I_D_ISEARCHER_H
 #define S_O_L_I_D_ISEARCHER_H
 
+#include "ISearchable.h"
 #include <string>
 template<class T>
 class ISearcher {

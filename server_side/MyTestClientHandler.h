@@ -23,8 +23,7 @@ namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
         MyTestClientHandler() {
-            m_solver = new SolverSearcher<MatrixSearcher<MATRIX_DEF> *>
-                    (new BFS<MatrixSearcher<MATRIX_DEF> *>());
+            m_solver = new SolverSearcher();
             m_cache = new FileCacheManager();
             m_lexer = new LexerParser();
         };

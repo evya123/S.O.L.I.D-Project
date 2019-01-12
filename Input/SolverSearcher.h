@@ -8,16 +8,19 @@
 #include <string>
 #include "Algorithms/ISearcher.h"
 
-template<class P>
-class SolverSearcher : public Solver<P, std::string> {
+class SolverSearcher
+        : public Solver<MatrixSearcher<MATRIX_DEF> *, std::string> {
 private:
-    ISearcher<P> *m_searcher;
+    ISearcher<MATRIX_DEF> *m_searcher;
 public:
-    SolverSearcher(ISearcher<P> *searcher) {
+    SolverSearcher() {};
+
+    void setSercher(ISearcher<MATRIX_DEF> *searcher) {
         m_searcher = searcher;
     }
 
-    std::string solve(P problem) override {
+    std::string
+    solve(MatrixSearcher<MATRIX_DEF> *problem) override {
         return m_searcher->search(problem);
     }
 };
