@@ -9,19 +9,19 @@
  * State - with cost and the prev State (cameFrom)
  * @tparam T type of the State
  */
-template<class T>
 class State {
 private:
-    T m_state;
     double m_cost;
     State *m_cameFrom;
     bool m_visit;
+    // the place i,j
+    std::pair<int, int> m_place;
 public:
-    T getState() {
-        return m_state;
+    std::pair<int, int> getPlace() {
+        return m_place;
     }
 
-    State(T s) : m_state(s) {
+    State(std::pair<int, int> ij) : m_place(ij) {
         m_visit = false;
     };
 
@@ -33,26 +33,25 @@ public:
         m_cameFrom = st;
     }
 
-    State operator>(const State &st2) const {
+    double getCost() const {
+        return m_cost;
+    }
+
+    bool operator>(const State &st2) const {
         return (m_cost > st2.getCost());
     }
 
-    State operator<(const State &st2) {
+    bool operator<(const State &st2) {
         return (m_cost < st2.getCost());
     }
 
-    State operator==(const State &st2) {
+    bool operator==(const State &st2) {
         return (m_cost == st2.getCost());
-    }
-
-    double getCost() {
-        return m_cost;
     }
 
     void setVisit(bool visit) {
         m_visit = visit;
     }
-
 
 };
 

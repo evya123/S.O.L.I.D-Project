@@ -13,14 +13,14 @@ LexerParser::LexerMatrix(std::string line, int iVecNum) {
         // find the ","
         unsigned long index = line.find(",");
         if (index != -1) {
-            State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
+            State *state = new State(PAIR(iVecNum, j));
             state->setCost(std::stod(line.substr(0, index)));
             result.push_back(state);
             line = line.substr(index + 1);
             ++j;
             // its the last state
         } else {
-            State<PAIR > *state = new State<PAIR >(PAIR(iVecNum, j));
+            State *state = new State(PAIR(iVecNum, j));
             state->setCost(std::stod(line.substr(0, size)));
             result.push_back(state);
             line = "";

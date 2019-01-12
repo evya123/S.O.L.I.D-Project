@@ -17,20 +17,18 @@ public:
     }
 
     std::string search(ISearchable<T> *searchable) override {
-        std::queue<State<T> *> queue;
-        State<T> *current = searchable->getInitialState();
-        State<T> *end = searchable->getGoalState();
+        std::queue<State*> queue;
+        State *current = searchable->getInitialState();
+        State *end = searchable->getGoalState();
         if (current != nullptr && current->getCost() > 0) {
             ++m_numOfNodes;
             queue.push(current);
         }
-        std::vector<State<T> *> neighbors;
+        std::vector<State*> neighbors;
         while (!queue.empty()) {
-
-
-
+            neighbors = searchable->getAllPossibleStates(current->getPlace()
+                    .first, current->getPlace().second);
         }
-
     }
 
     int getNumberOfNodesEvaluated() override {
