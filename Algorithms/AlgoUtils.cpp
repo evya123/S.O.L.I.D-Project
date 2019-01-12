@@ -9,4 +9,5 @@ void AlgoUtils::setVecToFalse(std::vector<State> *vec) {
 }
 
 void AlgoUtils::markUnvisited(MatrixSearcher *ms) {
+
 }

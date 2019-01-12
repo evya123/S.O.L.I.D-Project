@@ -11,11 +11,11 @@
 class SolverSearcher
         : public Solver<MatrixSearcher *, std::string> {
 private:
-    ISearcher<State> *m_searcher;
+    ISearcher<State*> *m_searcher;
 public:
     SolverSearcher() {};
 
-    void setSercher(ISearcher<State> *searcher) {
+    void setSercher(ISearcher<State*> *searcher) {
         m_searcher = searcher;
     }
 
