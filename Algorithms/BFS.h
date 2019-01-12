@@ -8,7 +8,7 @@
 #include <queue>
 
 
-class BFS : public ISearcher<State*> {
+class BFS : public ISearcher<State *> {
 private:
     int m_numOfNodes;
 public:
@@ -16,19 +16,17 @@ public:
         m_numOfNodes = 0;
     }
 
-    std::string search(ISearchable<State*> *searchable) override {
+    std::string search(ISearchable<State *> *searchable) override {
 
-        std::vector<State*> path;
-        std::queue<State*> queue;
+        std::vector<State *> path;
+        std::queue<State *> queue;
         State *current = searchable->getInitialState();
         State *end = searchable->getGoalState();
-        if (current->getPlace().first != -1 && current->getCost() > 0) {
-            std::cout << " nodes : " << m_numOfNodes << " value : "
-                      << current->getCost() << std::endl;
+        if (current->getPlace().first != -1 && current->getCost() >= 0) {
             current->setVisit(true);
             queue.push(current);
         }
-        std::vector<State*> neighbors;
+        std::vector<State *> neighbors;
         while (!queue.empty()) {
             current = queue.front();
             queue.pop();
@@ -42,18 +40,16 @@ public:
             State *tmp;
             for (int k = 0; k < neighbors.size(); ++k) {
                 tmp = neighbors[k];
-                std::cout << tmp->getCost() << " is neighbor of :" <<
-                          current->getCost() << std::endl;
                 if (tmp->getCost() != -1 && !tmp->isVisit()) {
                     queue.push(tmp);
                     tmp->setCameFrom(current);
                     tmp->setVisit(true);
                 }
             }
-            std::cout << " nodes : " << m_numOfNodes << " value : "
-                      << current->getCost() << std::endl;
 
             ++m_numOfNodes;
+            std::cout << " nodes : " << m_numOfNodes << " value : "
+                      << current->getCost() << std::endl;
         }
         return "manmanmanmaniak";
     }
