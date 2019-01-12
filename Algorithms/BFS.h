@@ -7,6 +7,7 @@
 
 #include <queue>
 
+
 class BFS : public ISearcher<State> {
 private:
     int m_numOfNodes;

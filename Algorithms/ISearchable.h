@@ -18,6 +18,10 @@ public:
 
     virtual std::vector<T> getAllPossibleStates(int i, int j) = 0;
 
+    auto begin();
+
+    auto end();
+
 
 };
 

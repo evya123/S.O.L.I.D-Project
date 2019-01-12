@@ -55,11 +55,11 @@ public:
     }
 
 
-    MatrixIter& begin(){
+    auto& begin(){
         return m_begin;
     }
 
-    MatrixIter& end(){
+    auto& end(){
         return m_end;
     }
 };
