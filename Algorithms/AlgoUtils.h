@@ -6,7 +6,7 @@
 #define S_O_L_I_D_ALGOUTILS_H
 #include "MatrixSearcher.h"
 #include <algorithm>
-#define MATRIX_DEF State*
+#define MATRIX_DEF State
 
 class AlgoUtils {
 protected:

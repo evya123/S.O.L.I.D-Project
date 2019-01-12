@@ -15,7 +15,7 @@ private:
     State *m_cameFrom;
     bool m_visit;
     // the place i,j
-    std::pair<int, int> m_place;
+    std::pair<int, int> m_place{-1,-1};
 public:
     std::pair<int, int> getPlace() {
         return m_place;

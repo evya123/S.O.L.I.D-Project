@@ -10,7 +10,7 @@
 #include <Algorithms/MatrixSearcher.h>
 #include "CacheManager.h"
 
-#define MATRIX_DEF State*
+#define MATRIX_DEF State
 
 namespace server_side {
     class FileCacheManager

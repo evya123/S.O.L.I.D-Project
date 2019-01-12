@@ -4,7 +4,7 @@
 
 void server_side::MyTestClientHandler::handleClient(int sockID) {
     int newsockfd = sockID;
-    std::vector<std::vector<State*>> allCombined;
+    std::vector<std::vector<State>> allCombined;
     int n;
     int counter = 0, matrixCounter = 0;
     std::string sumOfAll = "";
