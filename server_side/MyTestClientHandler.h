@@ -24,7 +24,7 @@ namespace server_side {
     public:
         MyTestClientHandler(std::vector<ISearcher<State*>*>& solvers) {
             m_solver = new SolverSearcher(solvers);
-            //m_cache = new FileCacheManager();
+            m_cache = new FileCacheManager();
             m_lexer = new LexerParser();
         };
 
@@ -32,7 +32,7 @@ namespace server_side {
 
     private:
         Solver<MatrixSearcher *, std::vector<std::string>> *m_solver;
-        //CacheManager<std::string, std::pair<MatrixSearcher *, std::string>> *m_cache;
+        CacheManager<std::string,std::string> *m_cache;
         LexerParser *m_lexer;
     };
 }
