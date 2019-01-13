@@ -1,4 +1,5 @@
 
+#include <Algorithms/DFS.h>
 #include "MyTestClientHandler.h"
 //#define MATRIX_DEF State<std::pair<int,int>*>
 
@@ -41,6 +42,9 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     }
     MatrixSearcher *problem =
             new MatrixSearcher(allCombined, &tmpS, &tmpE);
+    DFS test;
+    std::string str = test.search(problem);
+    std::cout<<str<<std::endl;
     std::string solution = m_solver->solve(problem);
     m_cache->addAnswerAndQuestion(sumOfAll, std::make_pair(problem, solution));
 }
