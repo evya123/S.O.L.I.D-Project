@@ -19,6 +19,7 @@ public:
     std::vector<std::string> solve(MatrixSearcher *problem) override {
         std::vector<std::string> ret;
         for(ISearcher<State*>* i : m_bankOfSolvers){
+            problem->resetVisited();
             std::string tmp = i->search(problem);
             ret.push_back(tmp);
         }

@@ -44,5 +44,6 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
             new MatrixSearcher(allCombined, &tmpS, &tmpE);
     std::vector<std::string> solutions;
     solutions = m_solver->solve(problem);
-    //m_cache->addAnswerAndQuestion(sumOfAll, std::make_pair(problem, solution));
+    for(std::string s : solutions)
+        std::cout<<"Result : "<<s<<std::endl;
 }
