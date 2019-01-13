@@ -80,6 +80,11 @@ public:
     State *getCameFrom() {
         return m_cameFrom;
     }
+
+    bool equals(State *other) {
+        return ((m_place.first == other->m_place.first) &&
+                (m_place.second == other->m_place.second));
+    }
 };
 
 
