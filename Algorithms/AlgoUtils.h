@@ -25,7 +25,6 @@ public:
         int i2;
         int j1;
         int j2;
-        std::cout << end->getCost() << std::endl;
         i1 = end->getPlace().first;
         i2 = end->getCameFrom()->getPlace().first;
         j1 = end->getPlace().second;
@@ -37,7 +36,6 @@ public:
         }
         end = end->getCameFrom();
         while (end != begin) {
-            std::cout << end->getCost() << std::endl;
             i1 = end->getPlace().first;
             i2 = end->getCameFrom()->getPlace().first;
             j1 = end->getPlace().second;

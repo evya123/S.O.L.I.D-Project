@@ -23,11 +23,11 @@ private:
 
 public:
 
-    MatrixSearcher(std::vector<std::vector<State *>> matrix,
-                   std::pair<int, int> *initial, std::pair<int, int> *goal)
+    MatrixSearcher(std::vector<std::vector<State*>> matrix,
+                   std::pair<int, int> initial, std::pair<int, int> goal)
             : m_Matrix(matrix),
-              m_initial_state(m_Matrix[initial->first][initial->second]),
-              m_goal_state(m_Matrix[goal->first][goal->second]) {};
+              m_initial_state(m_Matrix[initial.first][initial.second]),
+              m_goal_state(m_Matrix[goal.first][goal.second]) {};
 
 
     virtual State *getGoalState() {

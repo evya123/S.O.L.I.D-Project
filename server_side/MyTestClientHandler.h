@@ -19,6 +19,7 @@
 #include "Algorithms/BFS.h"
 
 #define MAXPACKETSIZE 1024
+
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
