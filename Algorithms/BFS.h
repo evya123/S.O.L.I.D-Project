@@ -6,7 +6,7 @@
 #define S_O_L_I_D_BFS_H
 
 #include <queue>
-
+#include "Algorithms/AlgoUtils.h"
 
 class BFS : public ISearcher<State *> {
 private:
@@ -15,15 +15,15 @@ public:
     BFS() {
         m_numOfNodes = 0;
     }
-
     std::string search(ISearchable<State *> *searchable) override {
-
-        std::vector<State *> path;
+        std::vector<State *> allStates;
         std::queue<State *> queue;
         State *current = searchable->getInitialState();
         State *end = searchable->getGoalState();
         if (current->getPlace().first != -1 && current->getCost() >= 0) {
             current->setVisit(true);
+            allStates.push_back(current);
+
             queue.push(current);
         }
         std::vector<State *> neighbors;
@@ -44,6 +44,8 @@ public:
                     if (tmp == end) {
                         tmp->setCameFrom(current);
                         tmp->setVisit(true);
+                        allStates.push_back(tmp);
+
                         ++m_numOfNodes;
                         current = tmp;
                         while (!queue.empty()) {
@@ -54,47 +56,16 @@ public:
                     queue.push(tmp);
                     tmp->setCameFrom(current);
                     tmp->setVisit(true);
+                    allStates.push_back(tmp);
                 }
             }
 
             ++m_numOfNodes;
         }
-        /// print path
-        std::string res = "";
-        State *tmp1 = current;
-        int i1;
-        int i2;
-        int j1;
-        int j2;
-        std::cout << tmp1->getCost() << std::endl;
-        i1 = tmp1->getPlace().first;
-        i2 = tmp1->getCameFrom()->getPlace().first;
-        j1 = tmp1->getPlace().second;
-        j2 = tmp1->getCameFrom()->getPlace().second;
-        if (j1 == j2) {
-            i1 > i2 ? res = ", Down " + res : res = ", UP " + res;
-        } else {
-            j1 > j2 ? res = ", Right " + res : res = ", Left " + res;
-        }
-        tmp1 = tmp1->getCameFrom();
-        while (tmp1 != searchable->getInitialState()) {
-            std::cout << tmp1->getCost() << std::endl;
-            i1 = tmp1->getPlace().first;
-            i2 = tmp1->getCameFrom()->getPlace().first;
-            j1 = tmp1->getPlace().second;
-            j2 = tmp1->getCameFrom()->getPlace().second;
-            if (j1 == j2) {
-                i1 > i2 ? res = ", Down " + res : res = ", UP " + res;
-            } else {
-                j1 > j2 ? res = ", Right " + res : res = ", Left " + res;
-            }
-            tmp1 = tmp1->getCameFrom();
-        }
-        res.erase(0, 2);
-        std::cout << res << std::endl;
+//printPath
+        return AlgoUtils::printPath(searchable->getInitialState(),
+                                   searchable->getGoalState());
 
-
-        return "res";
     }
 
     int getNumberOfNodesEvaluated() override {
