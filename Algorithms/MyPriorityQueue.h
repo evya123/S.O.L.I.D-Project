@@ -22,6 +22,9 @@ class MyPriorityQueue {
 private:
     std::priority_queue<State *, std::vector<State *>, CompareStates>
             m_priorityQueue;
+public:
+
+    MyPriorityQueue() = default;
 
     unsigned long QueueSize() {
         return m_priorityQueue.size();
