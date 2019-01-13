@@ -9,6 +9,7 @@
 #include <functional>
 #include <queue>
 #include <vector>
+#include <iostream>
 
 class CompareStates {
 public:
@@ -46,18 +47,30 @@ private:
 
     bool isInPriorityQueue(State *st) {
         std::vector<State *> tmpVec;
+        State *top;
         bool ret = false;
         while (!isEmpty_Priority_Queue()) {
-
+            top = Pop_Priority_Queue();
+            tmpVec.push_back(top);
+            // found the state
+            if (top->equals(st)) {
+                ret = true;
+            }
         }
+        // return the states to the priority queue
+        for (int i = 0; i < tmpVec.size(); ++i) {
+            push_Priority_Queue(tmpVec[i]);
+        }
+        return ret;
     }
 
 
     void Update_Priority_Queue(State *oldSt, State *newSt) {
         std::vector<State *> tmpVec;
+        State *top;
         while (!isEmpty_Priority_Queue()) {
             // take the top and pop out from queue
-            State *top = Pop_Priority_Queue();
+            top = Pop_Priority_Queue();
             tmpVec.push_back(top);
             /**
              *if old is equals to  the current top, we set that top came from
@@ -70,11 +83,23 @@ private:
             }
         }
         // return the states to the priority queue
-        for(int i=0; i<tmpVec.size(); ++i){
+        for (int i = 0; i < tmpVec.size(); ++i) {
             push_Priority_Queue(tmpVec[i]);
         }
     }
 
+    void print_Priority_Queue() {
+        std::vector<State *> tmpVec;
+        State *top;
+        while (!isEmpty_Priority_Queue()) {
+            top = Pop_Priority_Queue();
+            std::cout << top->getPathCost() << std::endl;
+        }
+        // return the states to the priority queue
+        for (int i = 0; i < tmpVec.size(); ++i) {
+            push_Priority_Queue(tmpVec[i]);
+        }
+    }
 
 };
 
