@@ -22,8 +22,8 @@
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
-        MyTestClientHandler() {
-            m_solver = new SolverSearcher();
+        MyTestClientHandler(std::vector<ISearcher<State*>*>& solvers) {
+            m_solver = new SolverSearcher(solvers);
             //m_cache = new FileCacheManager();
             m_lexer = new LexerParser();
         };

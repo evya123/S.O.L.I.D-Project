@@ -1,15 +1,5 @@
-//
-// Created by evya on 1/11/19.
-//
 
-
-#include <stack>
-#include <iostream>
 #include "DFS.h"
-
-auto removeElement = [](State* elem, std::vector<State*>& toDeleteFrom){
-    toDeleteFrom.erase( std::remove( toDeleteFrom.begin(), toDeleteFrom.end(), elem), toDeleteFrom.end());
-};
 
 std::string DFS::search(ISearchable<State*> *searchable) {
     State* root = searchable->getInitialState();

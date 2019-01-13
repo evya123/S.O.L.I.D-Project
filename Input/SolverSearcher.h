@@ -14,12 +14,8 @@ class SolverSearcher
 private:
     std::vector<ISearcher<State*>*> m_bankOfSolvers;
 public:
-    SolverSearcher() = default;
+    SolverSearcher(std::vector<ISearcher<State*>*>& solvers){ m_bankOfSolvers = solvers;};
 
-
-    void addSearcher(ISearcher<State*>* alg ){
-        m_bankOfSolvers.push_back(alg);
-    }
     std::vector<std::string> solve(MatrixSearcher *problem) override {
         std::vector<std::string> ret;
         for(ISearcher<State*>* i : m_bankOfSolvers){
