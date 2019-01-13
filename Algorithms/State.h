@@ -14,6 +14,7 @@ private:
     double m_cost;
     State *m_cameFrom;
     bool m_visit;
+    double m_path_cost;
     // the place i,j
     std::pair<int, int> m_place{-1, -1};
 public:
@@ -23,6 +24,8 @@ public:
 
     State(std::pair<int, int> ij) : m_place(ij) {
         m_visit = false;
+        m_path_cost = -1;
+
     };
 
     void setCost(double c) {
@@ -35,6 +38,14 @@ public:
 
     double getCost() const {
         return m_cost;
+    }
+
+    double getPathCost() const {
+        return m_path_cost;
+    }
+
+    void setPathCost(double c) {
+        m_path_cost = c;
     }
 
     bool operator>(const State &st2) const {
@@ -69,7 +80,6 @@ public:
     State *getCameFrom() {
         return m_cameFrom;
     }
-
 };
 
 
