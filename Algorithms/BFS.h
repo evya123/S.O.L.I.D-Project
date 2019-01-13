@@ -63,7 +63,7 @@ public:
             ++m_numOfNodes;
         }
 //printPath
-        return AlgoUtils::printPath(searchable->getInitialState(),
+        return AlgoUtils<State*>::printPath(searchable->getInitialState(),
                                    searchable->getGoalState());
 
     }
