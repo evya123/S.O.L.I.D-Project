@@ -17,7 +17,6 @@ public:
     virtual T getGoalState() = 0;
 
     virtual std::vector<T> getAllPossibleStates(int i, int j) = 0;
-
 };
 
 

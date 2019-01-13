@@ -17,7 +17,7 @@ std::string DFS::search(ISearchable<State*> *searchable) {
     m_numOfNodes = 0;
     DepthFirstSearch(root, goal, searchable);
     std::cout<<"----------- DONE -----------"<<std::endl;
-    return AlgoUtils::printPath(root, goal);
+    return AlgoUtils<State*>::printPath(root, goal);
 
 }
 

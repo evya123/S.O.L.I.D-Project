@@ -23,16 +23,16 @@ namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
         MyTestClientHandler() {
-            m_solver = new SolverSearcher(new BFS());
-            m_cache = new FileCacheManager();
+            m_solver = new SolverSearcher();
+            //m_cache = new FileCacheManager();
             m_lexer = new LexerParser();
         };
 
         void handleClient(int sockID) override;
 
     private:
-        Solver<MatrixSearcher *, std::string> *m_solver;
-        CacheManager<std::string, std::pair<MatrixSearcher *, std::string>> *m_cache;
+        Solver<MatrixSearcher *, std::vector<std::string>> *m_solver;
+        //CacheManager<std::string, std::pair<MatrixSearcher *, std::string>> *m_cache;
         LexerParser *m_lexer;
     };
 }

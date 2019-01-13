@@ -6,9 +6,10 @@
 #define S_O_L_I_D_BFS_H
 
 #include <queue>
+#include "ISearcher.h"
 
 
-class BFS : public ISearcher<State *> {
+class BFS : public ISearcher<State*> {
 private:
     int m_numOfNodes;
 public:

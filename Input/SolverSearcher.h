@@ -6,20 +6,27 @@
 #define S_O_L_I_D_MYSOLVER_H
 
 #include <string>
+#include <map>
 #include "Algorithms/ISearcher.h"
 
 class SolverSearcher
-        : public Solver<MatrixSearcher*, std::string> {
+        : public Solver<MatrixSearcher*, std::vector<std::string>> {
 private:
-    ISearcher<State*> *m_searcher;
+    std::vector<ISearcher<State*>*> m_bankOfSolvers;
 public:
-    SolverSearcher(ISearcher<State*> *searcher) {
-        m_searcher = searcher;
-    };
+    SolverSearcher() = default;
 
 
-    std::string solve(MatrixSearcher *problem) override {
-        return m_searcher->search(problem);
+    void addSearcher(ISearcher<State*>* alg ){
+        m_bankOfSolvers.push_back(alg);
+    }
+    std::vector<std::string> solve(MatrixSearcher *problem) override {
+        std::vector<std::string> ret;
+        for(ISearcher<State*>* i : m_bankOfSolvers){
+            std::string tmp = i->search(problem);
+            ret.push_back(tmp);
+        }
+        return ret;
     }
 };
 
