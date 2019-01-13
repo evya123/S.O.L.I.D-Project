@@ -29,6 +29,7 @@ public:
         std::unordered_set<State *> close;
         // insert the initial state to the priority queue
         open->push_Priority_Queue(searchable->getInitialState());
+        ++numOfnodes;
         // goal state
         State *goal = searchable->getGoalState();
         // tmp - to iterate the priority queue
@@ -41,7 +42,6 @@ public:
             close.insert(father);
             // if finds the goal - return and break.
             if (father == goal) {
-                //ToDo
                 //need to save to a vector and to sum the shortest path
                 return AlgoUtils<State *>::printPath(
                         searchable->getInitialState(),
@@ -68,6 +68,7 @@ public:
                     neigh->setCameFrom(father);
                     neigh->setPathCost(pathCost);
                     open->push_Priority_Queue(neigh);
+                    ++numOfnodes;
                 }
                     /**
                      * else:
@@ -79,6 +80,7 @@ public:
                     // if its not in "open"
                     if (!open->isInPriorityQueue(neigh)) {
                         open->push_Priority_Queue(neigh);
+                        ++numOfnodes;
                         // if it's in "open"
                     } else {
                         open->Update_Priority_Queue(neigh, father);
