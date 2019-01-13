@@ -100,6 +100,10 @@ public:
                 numOfnodes;
     }
 
+    ~BestFirstSearch() {
+        delete (open);
+    }
+
 };
 
 #endif //S_O_L_I_D_BESTFIRSTSEARCH_H

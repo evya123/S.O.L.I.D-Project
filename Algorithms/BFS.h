@@ -16,7 +16,9 @@ public:
         m_numOfNodes = 0;
     }
     std::string search(ISearchable<State *> *searchable) override {
+        // vector of all the states (
         std::vector<State *> allStates;
+        // the
         std::queue<State *> queue;
         State *current = searchable->getInitialState();
         State *end = searchable->getGoalState();
