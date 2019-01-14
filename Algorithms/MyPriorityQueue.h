@@ -11,16 +11,10 @@
 #include <vector>
 #include <iostream>
 
-class CompareStates {
-public:
-    bool operator()(const State *left, const State *right) {
-        return left->getPathCost() > right->getPathCost();
-    }
-};
-
+template<class Compare>
 class MyPriorityQueue {
 private:
-    std::priority_queue<State *, std::vector<State *>, CompareStates>
+    std::priority_queue<State *, std::vector<State *>, Compare>
             m_priorityQueue;
 public:
 

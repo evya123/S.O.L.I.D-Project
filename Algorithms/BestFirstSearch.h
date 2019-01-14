@@ -10,17 +10,24 @@
 #include "AlgoUtils.h"
 #include <unordered_set>
 
+class CompareStates {
+public:
+    bool operator()(const State *left, const State *right) {
+        return left->getPathCost() > right->getPathCost();
+    }
+};
+
 
 class BestFirstSearch : public ISearcher<State *> {
 private:
     int numOfnodes;
     // priority queue
-    MyPriorityQueue *open;
+    MyPriorityQueue<CompareStates> *open;
 
 public:
 
     BestFirstSearch() {
-        open = new MyPriorityQueue();
+        open = new MyPriorityQueue<CompareStates>();
         numOfnodes = 0;
     }
 
@@ -74,7 +81,7 @@ public:
                      * else:
                      * 1. if not in "open" (MyPriorityQueue) - add to open
                      *  else:
-                     *    1.
+                     *    1.update the priority of neigh
                      */
                 else if (pathCost < neigh->getPathCost()) {
                     // if its not in "open"

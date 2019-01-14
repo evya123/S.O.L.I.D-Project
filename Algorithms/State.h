@@ -30,6 +30,7 @@ public:
 
     void setCost(double c) {
         m_cost = c;
+        m_path_cost = c;
     }
 
     void setCameFrom(State *st) {
