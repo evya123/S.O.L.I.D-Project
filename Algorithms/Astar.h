@@ -14,9 +14,8 @@
 class CompareStatesAstar {
 public:
     bool operator()(const State *left, const State *right) {
-        return left->getPathCost() + left->getHeuristicCost() >
-               right->getPathCost()
-               + right->getHeuristicCost();
+        return left->getCost() + left->getHeuristicCost() >
+               right->getCost() + right->getHeuristicCost();
     }
 };
 
@@ -36,12 +35,15 @@ public:
         // set
         std::unordered_set<State *> close;
         // insert the initial state to the priority queue
+        searchable.getInitialState()->setHeuristicCost(f_calc_hueristic
+                                                               (searchable.getInitialState(),
+                                                                searchable.getGoalState()));
         open->push_Priority_Queue(searchable.getInitialState());
         ++numOfnodes;
         // goal state
         State *goal = searchable.getGoalState();
         //heuristic Function
-        double f = f_calc_hueristic(searchable.getInitialState(), goal);
+        double f;
         State *top;
         while (!open->isEmpty_Priority_Queue()) {
             // put the top in the Priority Queue
@@ -56,7 +58,7 @@ public:
             }
 
             // if not in close - continue
-            if (close.find(top) == close.end()) {
+            if (close.find(top) != close.end()) {
                 continue;
             } else {
                 /**
@@ -72,15 +74,45 @@ public:
                         (top->getPlace().first, top->getPlace().second);
                 double pathCost;
                 for (int k = 0; k < neighbors.size(); ++k) {
-                    neigh->setPathCost(top->getPathCost() + neigh->getCost());
-                    neigh->setCameFrom(top);
-                    neigh->setHeuristicCost(f_calc_hueristic(neigh, goal));
-                    open->push_Priority_Queue(neigh);
-                    ++numOfnodes;
+                    neigh = neighbors[k];
+                    if (neigh->getCost() == -1) {
+                        continue;
+                    }
+                    if (!open->isInPriorityQueue(neigh) && close.find(neigh) ==
+                                                           close.end()) {
+                        neigh->setPathCost(
+                                top->getPathCost() + neigh->getCost());
+                        neigh->setCameFrom(top);
+                        neigh->setHeuristicCost(f_calc_hueristic(neigh, goal));
+                        open->push_Priority_Queue(neigh);
+                        ++numOfnodes;
+                    }
+                        /**
+                         * else:
+                          * 1. if not in "open" (MyPriorityQueue) - add to open
+                          *  else:
+                          *    1.update the priority of neigh
+                          */
+                    else if (pathCost < neigh->getPathCost()) {
+                        // if its not in "open"
+                        if (!open->isInPriorityQueue(neigh)) {
+                            neigh->setHeuristicCost(
+                                    f_calc_hueristic(neigh, goal));
+                            open->push_Priority_Queue(neigh);
+                            ++numOfnodes;
+                            // if it's in "open"
+                        } else {
+                            neigh->setHeuristicCost(
+                                    f_calc_hueristic(neigh, goal));
+                            open->Update_Priority_Queue(neigh, top);
+                        }
+                    }
+
                 }
                 close.insert(top);
             }
         }
+        return "-1";
 
     }
 
@@ -101,7 +133,6 @@ public:
 
     ~Astar() override {
         delete open;
-
     }
 
 
