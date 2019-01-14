@@ -11,15 +11,22 @@
 #include "MyPriorityQueue.h"
 #include "AlgoUtils.h"
 
+class CompareStates {
+public:
+    bool operator()(const State *left, const State *right) {
+        return left->getPathCost() > right->getPathCost();
+    }
+};
+
 class Astar : public ISearcher<State *> {
 private:
     int numOfnodes;
     // priority queue
-    MyPriorityQueue *open;
+    MyPriorityQueue<CompareStates> *open;
 public:
     Astar() {
         numOfnodes = 0;
-        open = new MyPriorityQueue();
+        open = new MyPriorityQueue<CompareStates>();
     }
 
     std::string search(ISearchable<State *> &searchable) override {

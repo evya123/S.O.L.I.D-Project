@@ -31,14 +31,14 @@ public:
         numOfnodes = 0;
     }
 
-    std::string search(ISearchable<State *> *searchable) override {
+    std::string search(ISearchable<State *> &searchable) override {
         // set
         std::unordered_set<State *> close;
         // insert the initial state to the priority queue
-        open->push_Priority_Queue(searchable->getInitialState());
+        open->push_Priority_Queue(searchable.getInitialState());
         ++numOfnodes;
         // goal state
-        State *goal = searchable->getGoalState();
+        State *goal = searchable.getGoalState();
         // tmp - to iterate the priority queue
         State *father;
 
@@ -51,12 +51,12 @@ public:
             if (father == goal) {
                 //need to save to a vector and to sum the shortest path
                 return AlgoUtils<State *>::printPath(
-                        searchable->getInitialState(),
+                        searchable.getInitialState(),
                         goal);
             }
             // the neighbors of each state
             State *neigh;
-            std::vector<State *> neighbors = searchable->getAllPossibleStates
+            std::vector<State *> neighbors = searchable.getAllPossibleStates
                     (father->getPlace().first, father->getPlace().second);
             double pathCost;
             for (int k = 0; k < neighbors.size(); ++k) {
