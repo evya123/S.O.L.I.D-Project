@@ -15,6 +15,7 @@ private:
     State *m_cameFrom;
     bool m_visit;
     double m_path_cost;
+    double m_heuristicCost;
     // the place i,j
     std::pair<int, int> m_place{-1, -1};
 public:
@@ -25,7 +26,7 @@ public:
     State(std::pair<int, int> ij) : m_place(ij) {
         m_visit = false;
         m_path_cost = -1;
-
+        m_heuristicCost = -1;
     };
 
     void setCost(double c) {
@@ -87,7 +88,15 @@ public:
                 (m_place.second == other->m_place.second));
     }
 
-    ~State(){
+    void setHeuristicCost(double c) {
+        m_heuristicCost = c;
+    }
+
+    double getHeuristicCost() const{
+        return m_heuristicCost;
+    }
+
+    ~State() {
     }
 };
 

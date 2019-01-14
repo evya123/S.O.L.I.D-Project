@@ -11,10 +11,12 @@
 #include "MyPriorityQueue.h"
 #include "AlgoUtils.h"
 
-class CompareStates {
+class CompareStatesAstar {
 public:
     bool operator()(const State *left, const State *right) {
-        return left->getPathCost() > right->getPathCost();
+        return left->getPathCost() + left->getHeuristicCost() >
+               right->getPathCost()
+               + right->getHeuristicCost();
     }
 };
 
@@ -22,11 +24,11 @@ class Astar : public ISearcher<State *> {
 private:
     int numOfnodes;
     // priority queue
-    MyPriorityQueue<CompareStates> *open;
+    MyPriorityQueue<CompareStatesAstar> *open;
 public:
     Astar() {
         numOfnodes = 0;
-        open = new MyPriorityQueue<CompareStates>();
+        open = new MyPriorityQueue<CompareStatesAstar>();
     }
 
     std::string search(ISearchable<State *> &searchable) override {
@@ -59,7 +61,11 @@ public:
             } else {
                 /**
                  * for each successor:
-                 *
+                 * 1. set path cost
+                 * 2. set cameFrom to top
+                 * 3. set his heuristic Cost
+                 * 4. add to open
+                 * 5.++num of nodes
                  */
                 State *neigh;
                 std::vector<State *> neighbors = searchable.getAllPossibleStates
@@ -68,15 +74,11 @@ public:
                 for (int k = 0; k < neighbors.size(); ++k) {
                     neigh->setPathCost(top->getPathCost() + neigh->getCost());
                     neigh->setCameFrom(top);
-                    auto compare = [](State* left, State* right){
-                        right->getCost() +
-                    };
-                    /*****     set neigh.h? = h(s)?          ****/
+                    neigh->setHeuristicCost(f_calc_hueristic(neigh, goal));
                     open->push_Priority_Queue(neigh);
+                    ++numOfnodes;
                 }
                 close.insert(top);
-
-
             }
         }
 
