@@ -10,11 +10,13 @@
 namespace server_side {
     class Server {
     public:
-        virtual void open(int port, server_side::ClientHandler* clientHandler) = 0;
+        virtual void open(int port) = 0;
 
         virtual int acceptClient() = 0;
 
         virtual void stop() = 0;
+
+        virtual ~Server(){};
     };
 };
 #endif //SOLID_SERVER_H

@@ -91,3 +91,6 @@ MatrixArgs LexerParser::FullLexer(std::vector<std::string> &vec) {
     set(args,matrixIterEnd,pairIterEnd,this);
     return args;
 }
+
+LexerParser::~LexerParser() {
+}

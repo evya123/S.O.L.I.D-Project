@@ -10,21 +10,28 @@
 #include "Algorithms/ISearcher.h"
 
 class SolverSearcher
-        : public Solver<MatrixSearcher*, std::vector<std::string>> {
+        : public Solver<MatrixSearcher&, std::vector<std::string>> {
 private:
     std::vector<ISearcher<State*>*> m_bankOfSolvers;
 public:
     SolverSearcher(std::vector<ISearcher<State*>*>& solvers){ m_bankOfSolvers = solvers;};
 
-    std::vector<std::string> solve(MatrixSearcher *problem) override {
+    std::vector<std::string> solve(MatrixSearcher& problem) override {
         std::vector<std::string> ret;
         for(ISearcher<State*>* i : m_bankOfSolvers){
-            problem->resetVisited();
+            problem.resetVisited();
             std::string tmp = i->search(problem);
             ret.push_back(tmp);
         }
         return ret;
     }
+
+    ~SolverSearcher() override {
+        for(ISearcher<State*>* s : m_bankOfSolvers)
+            delete(s);
+    }
+
+
 };
 
 #endif //S_O_L_I_D_MYSOLVER_H

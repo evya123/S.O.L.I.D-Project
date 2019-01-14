@@ -14,10 +14,14 @@
 class DFS : public ISearcher<State*>{
 public:
     DFS(){m_numOfNodes = -1;};
-    void DepthFirstSearch(State *start, State *target, ISearchable<State *> *searchable);
-    std::string search(ISearchable<State*> *searchable) override;
+    void DepthFirstSearch(State *start, State *target, ISearchable<State *> &searchable);
+    std::string search(ISearchable<State*>& searchable) override;
 
     int getNumberOfNodesEvaluated() override;
+
+    ~DFS() override {
+
+    }
 
 private:
     std::queue<State*> fromVecToQueue(State *root, std::vector<State *> &toBeCleared);

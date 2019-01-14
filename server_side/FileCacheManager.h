@@ -8,9 +8,9 @@
 #include <string>
 #include <unordered_map>
 #include <Algorithms/MatrixSearcher.h>
+#include <mutex>
 #include "CacheManager.h"
 
-#define MATRIX_DEF State*
 
 namespace server_side {
     class FileCacheManager
@@ -24,6 +24,8 @@ namespace server_side {
         bool isExist(const std::string &item) const override;
 
         bool addAnswerAndQuestion(const std::string &question, const std::vector<std::string>& value) override;
+
+        ~FileCacheManager() override;
     };
 }
 

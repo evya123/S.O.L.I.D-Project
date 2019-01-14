@@ -10,9 +10,11 @@
 template<class T>
 class ISearcher {
 public:
-    virtual std::string search(ISearchable<T> *searchable) = 0;
+    virtual std::string search(ISearchable<T> &searchable) = 0;
 
     virtual int getNumberOfNodesEvaluated() = 0;
+
+    virtual ~ISearcher(){};
 };
 
 #endif //S_O_L_I_D_ISEARCHER_H

@@ -6,6 +6,7 @@
 #define S_O_L_I_D_ALGOUTILS_H
 #include <algorithm>
 #include <iostream>
+#include <functional>
 #include "ISearchable.h"
 #include "State.h"
 
@@ -51,12 +52,6 @@ public:
         return res;
     }
 
-
-    void markUnvisited(ISearchable<T>* ms) {
-        auto start = ms->begin();
-        auto end = ms->end();
-        std::for_each(start,end,setVecToFalse);
-    }
 };
 
 

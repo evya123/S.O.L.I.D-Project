@@ -11,7 +11,7 @@
 #include "State.h"
 #include "AlgoUtils.h"
 #include <algorithm>
-
+#include <list>
 typedef std::vector<std::vector<State *>>::iterator MatrixIter;
 
 class MatrixSearcher : public ISearchable<State *> {
@@ -19,7 +19,6 @@ private:
     std::vector<std::vector<State *>> m_Matrix;
     State *m_initial_state;
     State *m_goal_state;
-
 
 public:
 
@@ -63,6 +62,13 @@ public:
         for(std::vector<State*> v : m_Matrix){
             auto vecSet = [](std::vector<State*>& v) {std::for_each(v.begin(),v.end(),set) ;};
             std::for_each(v.begin(),v.end(), set);
+        }
+    }
+
+    ~MatrixSearcher() override {
+        for(std::vector<State *> v : m_Matrix){
+            for(State* s : v)
+                delete s;
         }
     }
 };

@@ -1,19 +1,19 @@
 
 #include "DFS.h"
 
-std::string DFS::search(ISearchable<State*> *searchable) {
-    State* root = searchable->getInitialState();
-    State* goal = searchable->getGoalState();
+std::string DFS::search(ISearchable<State*> &searchable) {
+    State* root = searchable.getInitialState();
+    State* goal = searchable.getGoalState();
     m_numOfNodes = 0;
     DepthFirstSearch(root, goal, searchable);
     return AlgoUtils<State*>::printPath(root, goal);
 
 }
 
-void DFS::DepthFirstSearch(State *start, State *target, ISearchable<State *> *searchable) {
+void DFS::DepthFirstSearch(State *start, State *target, ISearchable<State *> &searchable) {
     if (!target->isVisit()){
         start->setVisit(true);
-        std::vector<State*> adjList = searchable->getAllPossibleStates(
+        std::vector<State*> adjList = searchable.getAllPossibleStates(
                 start->getPlace().first,
                 start->getPlace().second);
         std::queue<State*> adjQueue = fromVecToQueue(start, adjList);

@@ -85,6 +85,9 @@ public:
         return ((m_place.first == other->m_place.first) &&
                 (m_place.second == other->m_place.second));
     }
+
+    ~State(){
+    }
 };
 
 

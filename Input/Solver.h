@@ -9,6 +9,7 @@ template <class Problem, class Soultion>
 class Solver {
 public:
     virtual Soultion solve(Problem) = 0 ;
+    virtual ~Solver(){};
 };
 
 #endif //S_O_L_I_D_SOLVER_H

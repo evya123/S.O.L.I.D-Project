@@ -1,13 +1,9 @@
 
 #include <Algorithms/DFS.h>
 #include "MyTestClientHandler.h"
-
 auto sendFunc = [](std::string& s, int newsockfd){
-    char buff[MAXPACKETSIZE];
-    int n;
-    memset(buff, 0, MAXPACKETSIZE);
-    std::copy(s.begin(),s.end(),buff);
-    n = write(newsockfd,buff, s.size());
+    ssize_t n;
+    n = write(newsockfd,&s[POINTER_TO_STRING], s.size());
     switch (n){
         case -1:
             perror("Couldn't write to client\n");
@@ -23,6 +19,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     std::string toMap = "";
     char line[MAXPACKETSIZE];
     while (true) {
+
         memset(line, 0, MAXPACKETSIZE);
         n = read(newsockfd, line, MAXPACKETSIZE);
         if (!strcmp(line, "end"))
@@ -47,8 +44,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     }
     if (sendToClient){
         args = m_lexer->FullLexer(buff);
-        MatrixSearcher *problem =
-                new MatrixSearcher(args.matrix,args.startPos,args.goalPos);
+        MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
         std::vector<std::string> solutions;
         solutions = m_solver->solve(problem);
         m_cache->addAnswerAndQuestion(toMap,solutions);
@@ -56,4 +52,9 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
             sendFunc(s,newsockfd);
         }
     }
+}
+
+server_side::MyTestClientHandler::~MyTestClientHandler() {
+    delete m_solver;
+    delete m_lexer;
 }

@@ -7,6 +7,7 @@
 
 #include <string>
 #include <vector>
+#include <list>
 #include "Algorithms/State.h"
 
 #define PAIR std::pair<int,int>
@@ -18,13 +19,16 @@ typedef struct args{
 }MatrixArgs;
 class LexerParser {
 public:
-
     MatrixArgs FullLexer(std::vector <std::string> &vec);
 
     std::vector<std::vector<State*>>
     LexerMatrix(std::vector<std::string>::iterator &matrixIterStart, std::vector<std::string>::iterator &matrixIterEnd);
 
     std::pair<int, int> LexerInitialAndGoalPoints(std::string line);
+
+    virtual ~LexerParser();
+
+private:
 };
 
 

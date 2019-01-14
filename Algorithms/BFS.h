@@ -15,13 +15,13 @@ public:
     BFS() {
         m_numOfNodes = 0;
     }
-    std::string search(ISearchable<State *> *searchable) override {
+    std::string search(ISearchable<State *>& searchable) override {
         // vector of all the states (
         std::vector<State *> allStates;
         // the
         std::queue<State *> queue;
-        State *current = searchable->getInitialState();
-        State *end = searchable->getGoalState();
+        State *current = searchable.getInitialState();
+        State *end = searchable.getGoalState();
         if (current->getPlace().first != -1 && current->getCost() >= 0) {
             current->setVisit(true);
             allStates.push_back(current);
@@ -35,7 +35,7 @@ public:
             if (current == end) {
                 break;
             }
-            neighbors = searchable->getAllPossibleStates(current->getPlace()
+            neighbors = searchable.getAllPossibleStates(current->getPlace()
                                                                  .first,
                                                          current->getPlace()
                                                                  .second);
@@ -65,13 +65,17 @@ public:
             ++m_numOfNodes;
         }
 //printPath
-        return AlgoUtils<State*>::printPath(searchable->getInitialState(),
-                                   searchable->getGoalState());
+        return AlgoUtils<State*>::printPath(searchable.getInitialState(),
+                                   searchable.getGoalState());
 
     }
 
     int getNumberOfNodesEvaluated() override {
         return m_numOfNodes;
+    }
+
+    ~BFS() override {
+
     }
 
 };

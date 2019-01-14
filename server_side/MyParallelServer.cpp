@@ -1,7 +1,7 @@
 
 #include "MyParallelServer.h"
 
-void server_side::MyParallelServer::open(int port, ClientHandler* clientHandler) {
+void server_side::MyParallelServer::open(int port) {
     struct sockaddr_in serverAddr;
 
     if ((m_sockID = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == FAILD) {
@@ -27,7 +27,7 @@ void server_side::MyParallelServer::open(int port, ClientHandler* clientHandler)
         exit(EXIT_FAILURE);
     }
 
-    if (listen(m_sockID, QUEUE_SIZE) == FAILD) {
+    if (listen(m_sockID, 5) == FAILD) {
         perror("listen");
         exit(EXIT_FAILURE);
     }
@@ -37,10 +37,14 @@ int server_side::MyParallelServer::acceptClient() {
     int newSocket;
     struct sockaddr_storage serverStorage;
     socklen_t addr_size = sizeof(serverStorage);
+    if (setsockopt (m_sockID, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,
+                    sizeof(timeout)) < 0)
+        perror("setsockopt failed\n");
     newSocket = accept(m_sockID, (struct sockaddr *) &serverStorage, &addr_size);
     if (newSocket == FAILD){
-        perror("setsockopt");
-        exit(EXIT_FAILURE);
+        shutdown(m_sockID,SHUT_RDWR);
+        perror("Timeout : ");
+        return TIME_OUT;
     }
     return newSocket;
 }
@@ -53,4 +57,8 @@ void server_side::MyParallelServer::stop() {
     if (close(m_sockID) > 0) {
         perror("TcpServer->detach->close 1: ");
     }
+}
+
+server_side::MyParallelServer::~MyParallelServer() {
+    stop();
 }

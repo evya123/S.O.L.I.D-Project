@@ -17,23 +17,26 @@
 #include "Algorithms/MatrixSearcher.h"
 #include "Input/LexerParser.h"
 #include "Algorithms/BFS.h"
+#define POINTER_TO_STRING 0
 
-#define MAXPACKETSIZE 1024
+#define MAXPACKETSIZE 256
 
 namespace server_side {
     class MyTestClientHandler : public ClientHandler {
     public:
         MyTestClientHandler(std::vector<ISearcher<State *> *> &solvers,
-                            CacheManager<std::string, std::vector<std::string>> *cache) {
+                            CacheManager <std::string, std::vector<std::string>> &cache) {
             m_solver = new SolverSearcher(solvers);
-            m_cache = cache;
+            m_cache = &cache;
             m_lexer = new LexerParser();
         };
 
         void handleClient(int sockID) override;
 
+        ~MyTestClientHandler() override;
+
     private:
-        Solver<MatrixSearcher *, std::vector<std::string>> *m_solver;
+        Solver<MatrixSearcher&, std::vector<std::string>> *m_solver;
         CacheManager<std::string,std::vector<std::string>> *m_cache;
         LexerParser *m_lexer;
     };
