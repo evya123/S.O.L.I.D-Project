@@ -21,7 +21,7 @@ namespace server_side {
 
         std::vector<std::string> getAnswer(const std::string &question) const override;
 
-        bool isExist(const std::string &item) const override;
+        bool isExist(const std::string &item) override;
 
         bool addAnswerAndQuestion(const std::string &question, const std::vector<std::string>& value) override;
 

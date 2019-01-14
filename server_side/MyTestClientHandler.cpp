@@ -1,9 +1,10 @@
-
+#include <thread>
 #include <Algorithms/DFS.h>
 #include "MyTestClientHandler.h"
 auto sendFunc = [](std::string& s, int newsockfd){
     ssize_t n;
     n = write(newsockfd,&s[POINTER_TO_STRING], s.size());
+    s.clear();
     switch (n){
         case -1:
             perror("Couldn't write to client\n");
@@ -44,6 +45,7 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     }
     if (sendToClient){
         args = m_lexer->FullLexer(buff);
+        std::cout<<"---------------"<<std::this_thread::get_id()<<"---------------"<<std::endl;
         MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
         std::vector<std::string> solutions;
         solutions = m_solver->solve(problem);

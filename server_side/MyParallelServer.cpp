@@ -27,7 +27,7 @@ void server_side::MyParallelServer::open(int port) {
         exit(EXIT_FAILURE);
     }
 
-    if (listen(m_sockID, 5) == FAILD) {
+    if (listen(m_sockID, QUEUE_SIZE) == FAILD) {
         perror("listen");
         exit(EXIT_FAILURE);
     }
