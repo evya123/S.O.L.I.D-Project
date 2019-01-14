@@ -14,17 +14,16 @@
 
 namespace server_side {
     class FileCacheManager
-            : public CacheManager<std::string, std::string> {
+            : public CacheManager<std::string,std::vector<std::string>> {
     private:
-        std::unordered_map<std::string, std::string> m_cacheMap;
-        std:: string getAnswer(const std::string &question) const override;
-
+        std::unordered_map<std::string,std::vector<std::string>> m_cacheMap;
     public:
-        std::string returnAnswer(const std::string &question) const;
+
+        std::vector<std::string> getAnswer(const std::string &question) const override;
 
         bool isExist(const std::string &item) const override;
 
-        bool addAnswerAndQuestion(const std::string &question, const std::string &answer) override;
+        bool addAnswerAndQuestion(const std::string &question, const std::vector<std::string>& value) override;
     };
 }
 

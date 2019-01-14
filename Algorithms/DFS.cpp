@@ -12,7 +12,6 @@ std::string DFS::search(ISearchable<State*> *searchable) {
 
 void DFS::DepthFirstSearch(State *start, State *target, ISearchable<State *> *searchable) {
     if (!target->isVisit()){
-        std::cout<<start->getCost()<<std::endl;
         start->setVisit(true);
         std::vector<State*> adjList = searchable->getAllPossibleStates(
                 start->getPlace().first,
