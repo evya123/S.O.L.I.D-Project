@@ -39,7 +39,6 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     MatrixArgs args;
     bool sendToClient = true;
     if (m_cache->isExist(toMap)){
-        std::cout<<"There is a solution!\n";
         std::vector<std::string> answer = m_cache->getAnswer(toMap);
         sendToClient = false;
         for(std::string s : answer){
@@ -47,7 +46,6 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
         }
     }
     if (sendToClient){
-        std::cout<<"There is no solution!\n";
         args = m_lexer->FullLexer(buff);
         MatrixSearcher *problem =
                 new MatrixSearcher(args.matrix,args.startPos,args.goalPos);
