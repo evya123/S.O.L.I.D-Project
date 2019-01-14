@@ -2,6 +2,7 @@
 // Created by evya on 1/10/19.
 //
 
+#include <iostream>
 #include "LexerParser.h"
 
 std::vector<std::vector<State*>>
@@ -23,7 +24,9 @@ LexerParser::LexerMatrix(std::vector<std::string>::iterator &matrixIterStart,
                 try {
                     state->setCost(std::stod((*matrixIterStart).substr(0, index)));
                 } catch (...){
-                    std::__throw_invalid_argument("Invalid argument!");
+                    std::cout<<"Invalid argument!"<<std::endl;
+                    std::terminate();
+//                    std::__throw_invalid_argument("Invalid argument!");
                 }
                 result.emplace_back(state);
                 (*matrixIterStart) = (*matrixIterStart).substr(index + 1);
@@ -34,7 +37,9 @@ LexerParser::LexerMatrix(std::vector<std::string>::iterator &matrixIterStart,
                 try {
                     state->setCost(std::stod((*matrixIterStart).substr(0, size)));
                 }catch (...){
-                    std::__throw_invalid_argument("Invalid argument!");
+                    std::cout<<"Invalid argument!"<<std::endl;
+                    std::terminate();
+//                    std::__throw_invalid_argument("Invalid argument!");
                 };
                 result.emplace_back(state);
                 (*matrixIterStart) = "";
@@ -54,12 +59,16 @@ std::pair<int, int> LexerParser::LexerInitialAndGoalPoints(std::string line) {
     try {
         first = std::stoi(line.substr(0, index));
     }catch (...){
-        std::__throw_invalid_argument("Invalid argument!");
+        std::cout<<"Invalid argument!"<<std::endl;
+        std::terminate();
+//        std::__throw_invalid_argument("Invalid argument!");
     };
     try {
         second = std::stoi(line.substr(index + 1, line.size()));
     }catch (...){
-        std::__throw_invalid_argument("Invalid argument!");
+        std::cout<<"Invalid argument!"<<std::endl;
+        std::terminate();
+//        std::__throw_invalid_argument("Invalid argument!");
     };
     return std::make_pair(first, second);
 }
