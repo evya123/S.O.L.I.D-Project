@@ -68,6 +68,9 @@ public:
                 for (int k = 0; k < neighbors.size(); ++k) {
                     neigh->setPathCost(top->getPathCost() + neigh->getCost());
                     neigh->setCameFrom(top);
+                    auto compare = [](State* left, State* right){
+                        right->getCost() +
+                    };
                     /*****     set neigh.h? = h(s)?          ****/
                     open->push_Priority_Queue(neigh);
                 }
