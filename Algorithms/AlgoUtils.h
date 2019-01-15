@@ -49,7 +49,7 @@ public:
             end = end->getCameFrom();
         }
         res.erase(0, 2);
-        return res;
+        return res + "\n";
     }
 
 };

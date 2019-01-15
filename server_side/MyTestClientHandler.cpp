@@ -1,5 +1,6 @@
-#include <thread>
+//#include <thread>
 #include <Algorithms/DFS.h>
+#include <sstream>
 #include "MyTestClientHandler.h"
 auto sendFunc = [](std::string& s, int newsockfd){
     ssize_t n;
@@ -16,23 +17,22 @@ auto sendFunc = [](std::string& s, int newsockfd){
 void server_side::MyTestClientHandler::handleClient(int sockID) {
     int newsockfd = sockID;
     ssize_t n;
-    std::vector<std::string> buff;
-    std::string toMap = "";
     char line[MAXPACKETSIZE];
-    while (true) {
-
+    std::string toMap;
+    std::string smallBuff;
+    do {
         memset(line, 0, MAXPACKETSIZE);
         n = read(newsockfd, line, MAXPACKETSIZE);
-        if (!strcmp(line, "end"))
-            break;
         line[n] = 0;
         if (n == 0) {
-            close(newsockfd);
+//            close(newsockfd);
             break;
         }
-        buff.emplace_back(line);
         toMap += line;
-    }
+        smallBuff += line;
+    } while(smallBuff.find("end") == std::string::npos);
+
+
 
     MatrixArgs args;
     bool sendToClient = true;
@@ -43,9 +43,21 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
             sendFunc(s,newsockfd);
         }
     }
+
+    auto split  = [](const std::string & s,std::vector<std::string>& splittedVec,
+                     const char delim){
+        std::stringstream ss(s);
+        std::string item;
+        while(std::getline(ss, item, delim)) {
+            splittedVec.emplace_back(item);
+        }
+        splittedVec.pop_back();
+    };
+    std::vector<std::string> buff;
+    split(toMap,buff,'\n');
+
     if (sendToClient){
         args = m_lexer->FullLexer(buff);
-        std::cout<<"---------------"<<std::this_thread::get_id()<<"---------------"<<std::endl;
         MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
         std::vector<std::string> solutions;
         solutions = m_solver->solve(problem);
