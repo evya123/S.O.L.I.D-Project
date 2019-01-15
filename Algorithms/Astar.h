@@ -39,7 +39,6 @@ public:
                                                                (searchable.getInitialState(),
                                                                 searchable.getGoalState()));
         open->push_Priority_Queue(searchable.getInitialState());
-        ++numOfnodes;
         // goal state
         State *goal = searchable.getGoalState();
         //heuristic Function
@@ -47,6 +46,8 @@ public:
         while (!open->isEmpty_Priority_Queue()) {
             // put the top in the Priority Queue
             top = open->Pop_Priority_Queue();
+            ++numOfnodes;
+
             // if the top is the goal - send to the user
             if (top->equals(goal)) {
                 open->clear_Priority_Queue();

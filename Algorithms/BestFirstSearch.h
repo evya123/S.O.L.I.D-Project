@@ -36,7 +36,6 @@ public:
         std::unordered_set<State *> close;
         // insert the initial state to the priority queue
         open->push_Priority_Queue(searchable.getInitialState());
-        ++numOfnodes;
         // goal state
         State *goal = searchable.getGoalState();
         // tmp - to iterate the priority queue
@@ -45,6 +44,7 @@ public:
         while (!open->isEmpty_Priority_Queue()) {
             // take from the priority queue the min
             father = open->Pop_Priority_Queue();
+            ++numOfnodes;
             // insert to the set the minimum
             close.insert(father);
             // if finds the goal - return and break.

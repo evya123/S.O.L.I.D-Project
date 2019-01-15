@@ -33,6 +33,7 @@ public:
         while (!queue.empty()) {
             current = queue.front();
             queue.pop();
+            ++m_numOfNodes;
             if (current == end) {
                 break;
             }//takes all the neighbors
@@ -61,7 +62,6 @@ public:
                 }
             }
 
-            ++m_numOfNodes;
         }
 //printPath
         AlgoUtils<State *>::ShortestPath(searchable.getInitialState(),
