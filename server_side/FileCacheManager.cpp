@@ -39,10 +39,18 @@ bool server_side::FileCacheManager::saveToFile(const std::string &cacheFileName,
         return false;           //file does not exist and cannot be created.
     auto iter = m_cacheMap.begin();
     for (iter; iter != m_cacheMap.end(); ++iter) {
-        ofile << iter->first << "\n";
-        for(std::string v : iter->second){
-            solutionFile<<v<<"\n";
+        if (iter->first == "-"){
+            for(std::string v : iter->second){
+                solutionFile<<v<<"\n";
+            }
+        } else {
+            ofile << iter->first << "\n";
+            for (std::string s : iter->second)
+                ofile<<s<<"\n";
         }
+//        for(std::string v : iter->second){
+//            solutionFile<<v<<"\n";
+//        }
     }
     return true;
 }

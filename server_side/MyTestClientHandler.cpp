@@ -64,8 +64,9 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
         args = m_lexer->FullLexer(buff);
         MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
         returnVal ret = m_solver->solve(problem);
-        m_cache->addAnswerAndQuestion(toMap,ret.solutions);
-        for(std::string s : ret.matrix){
+        m_cache->addAnswerAndQuestion(toMap,ret.matrix);
+        m_cache->addAnswerAndQuestion("-",ret.solutions);
+        for(std::string s : ret.solutions){
             sendFunc(s,newsockfd);
         }
     }
