@@ -19,16 +19,21 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     std::string toMap;
     std::string smallBuff;
     do {
+        smallBuff.clear();
         memset(line, 0, MAXPACKETSIZE);
         n = read(newsockfd, line, MAXPACKETSIZE);
         line[n] = 0;
         if (n == 0) {
-            std::cout<<"HandleClient!\n";
             close(newsockfd);
             break;
         }
         toMap += line;
         smallBuff += line;
+        if(smallBuff.empty())
+            if (toMap.find("end") == std::string::npos)
+                break;
+            else
+                std::cout<<"There is a problem"<<std::endl;
     } while(smallBuff.find("end") == std::string::npos);
 
 

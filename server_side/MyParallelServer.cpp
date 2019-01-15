@@ -3,7 +3,6 @@
 
 void server_side::MyParallelServer::open(int port) {
     struct sockaddr_in serverAddr;
-
     if ((m_sockID = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == FAILD) {
         perror("socket failed");
         exit(EXIT_FAILURE);
@@ -42,8 +41,8 @@ int server_side::MyParallelServer::acceptClient() {
         perror("setsockopt failed\n");
     newSocket = accept(m_sockID, (struct sockaddr *) &serverStorage, &addr_size);
     if (newSocket == FAILD){
-        shutdown(m_sockID,SHUT_RDWR);
-        perror("Timeout : ");
+//        shutdown(m_sockID,SHUT_RDWR);
+//        perror("Timeout : ");
         return TIME_OUT;
     }
     return newSocket;

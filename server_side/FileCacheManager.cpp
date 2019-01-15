@@ -2,6 +2,7 @@
 // Created by lidor on 03/01/19.
 //
 
+#include <fstream>
 #include "FileCacheManager.h"
 std::mutex m_locker;
 
@@ -27,4 +28,19 @@ std::vector<std::string> server_side::FileCacheManager::getAnswer
 
 server_side::FileCacheManager::~FileCacheManager() {
 
+}
+
+bool server_side::FileCacheManager::saveToFile(const std::string &filename) {
+    std::ofstream ofile;
+    ofile.open(filename.c_str());
+    if (!ofile)
+        return false;           //file does not exist and cannot be created.
+    auto iter = m_cacheMap.begin();
+    for (iter; iter != m_cacheMap.end(); ++iter) {
+        ofile << iter->first << ":\n";
+        for(std::string v : iter->second){
+            ofile<<v<<":\n";
+        }
+    }
+    return true;
 }
