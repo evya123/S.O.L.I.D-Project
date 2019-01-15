@@ -7,7 +7,7 @@
 #include <netinet/in.h>
 #include <cstring>
 #include <unistd.h>
-#define TIME_OUT '*'
+#define TIME_OUT -5
 #define FAILD -1
 #define QUEUE_SIZE 50
 

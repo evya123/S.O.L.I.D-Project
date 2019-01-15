@@ -37,9 +37,9 @@ int server_side::MyParallelServer::acceptClient() {
     int newSocket;
     struct sockaddr_storage serverStorage;
     socklen_t addr_size = sizeof(serverStorage);
-//    if (setsockopt (m_sockID, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,
-//                    sizeof(timeout)) < 0)
-//        perror("setsockopt failed\n");
+    if (setsockopt (m_sockID, SOL_SOCKET, SO_RCVTIMEO, (char *)&timeout,
+                    sizeof(timeout)) < 0)
+        perror("setsockopt failed\n");
     newSocket = accept(m_sockID, (struct sockaddr *) &serverStorage, &addr_size);
     if (newSocket == FAILD){
         shutdown(m_sockID,SHUT_RDWR);

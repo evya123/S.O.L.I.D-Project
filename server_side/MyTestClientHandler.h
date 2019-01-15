@@ -17,8 +17,10 @@
 #include "Algorithms/MatrixSearcher.h"
 #include "Input/LexerParser.h"
 #include "Algorithms/BFS.h"
+#include <sstream>
 #define POINTER_TO_STRING 0
 
+#define POINTER_TO_STRING 0
 #define MAXPACKETSIZE 256
 
 namespace server_side {

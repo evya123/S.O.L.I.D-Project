@@ -8,6 +8,7 @@
 #include <string>
 #include <map>
 #include "Algorithms/ISearcher.h"
+#include "Solver.h"
 
 class SolverSearcher
         : public Solver<MatrixSearcher&, std::vector<std::string>> {

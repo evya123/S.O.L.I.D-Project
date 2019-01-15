@@ -1,7 +1,5 @@
-//#include <thread>
-#include <Algorithms/DFS.h>
-#include <sstream>
 #include "MyTestClientHandler.h"
+
 auto sendFunc = [](std::string& s, int newsockfd){
     ssize_t n;
     n = write(newsockfd,&s[POINTER_TO_STRING], s.size());
@@ -9,7 +7,7 @@ auto sendFunc = [](std::string& s, int newsockfd){
     switch (n){
         case -1:
             perror("Couldn't write to client\n");
-            exit(0);
+            exit(EXIT_FAILURE);
         default:;
     }
 };
@@ -25,7 +23,8 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
         n = read(newsockfd, line, MAXPACKETSIZE);
         line[n] = 0;
         if (n == 0) {
-//            close(newsockfd);
+            std::cout<<"HandleClient!\n";
+            close(newsockfd);
             break;
         }
         toMap += line;

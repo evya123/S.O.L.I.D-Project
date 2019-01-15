@@ -49,7 +49,6 @@ public:
                         allStates.push_back(tmp);
 
                         ++m_numOfNodes;
-                        current = tmp;
                         while (!queue.empty()) {
                             queue.pop();
                         }

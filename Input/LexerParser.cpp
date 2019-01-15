@@ -61,14 +61,12 @@ std::pair<int, int> LexerParser::LexerInitialAndGoalPoints(std::string line) {
     }catch (...){
         std::cout<<"Invalid argument!"<<std::endl;
         std::terminate();
-//        std::__throw_invalid_argument("Invalid argument!");
     };
     try {
         second = std::stoi(line.substr(index + 1, line.size()));
     }catch (...){
         std::cout<<"Invalid argument!"<<std::endl;
         std::terminate();
-//        std::__throw_invalid_argument("Invalid argument!");
     };
     return std::make_pair(first, second);
 }
