@@ -4,6 +4,7 @@
 
 #ifndef S_O_L_I_D_ALGOUTILS_H
 #define S_O_L_I_D_ALGOUTILS_H
+
 #include <algorithm>
 #include <iostream>
 #include <functional>
@@ -11,15 +12,17 @@
 #include "State.h"
 
 #define MATRIX_DEF State*
-auto set = [](State* s) { s->setVisit(false);};
+auto set = [](State *s) { s->setVisit(false); };
 
-auto setVecToFalse = [](std::vector<State*>& vec) {
-    std::for_each(vec.begin(), vec.end(),set);};
+auto setVecToFalse = [](std::vector<State *> &vec) {
+    std::for_each(vec.begin(), vec.end(), set);
+};
 
-template <class T>
+template<class T>
 class AlgoUtils {
 public:
     AlgoUtils() = default;
+
     static std::string printPath(State *begin, State *end) {
         std::string res = "";
         int i1;
@@ -52,6 +55,21 @@ public:
         return res + "\n";
     }
 
+    static void ShortestPath(State *begin, State *end) {
+        State *current = end;
+        double s = 0;
+        // end cost
+        s += current->getCost();
+        current = current->getCameFrom();
+        while (!current->equals(begin)) {
+            s += current->getCost();
+            current = current->getCameFrom();
+        }
+        //begin;
+        s += current->getCost();
+        end->setPathCost(s);
+        std::cout << "num ofPath : " << end->getPathCost() << std::endl;
+    }
 };
 
 

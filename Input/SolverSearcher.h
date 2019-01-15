@@ -23,8 +23,8 @@ public:
             problem.resetVisited();
             std::string tmp = i->search(problem);
             ret.push_back(tmp);
+            ret.emplace_back(std::to_string(problem.getGoalState()->getPathCost()));
         }
-        ret.emplace_back(std::to_string(problem.getGoalState()->getPathCost()));
         return ret;
     }
 

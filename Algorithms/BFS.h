@@ -15,7 +15,8 @@ public:
     BFS() {
         m_numOfNodes = 0;
     }
-    std::string search(ISearchable<State *>& searchable) override {
+
+    std::string search(ISearchable<State *> &searchable) override {
         // vector of all the states (
         std::vector<State *> allStates;
         // the
@@ -36,15 +37,16 @@ public:
                 break;
             }
             neighbors = searchable.getAllPossibleStates(current->getPlace()
-                                                                 .first,
-                                                         current->getPlace()
-                                                                 .second);
+                                                                .first,
+                                                        current->getPlace()
+                                                                .second);
             State *tmp;
             for (int k = 0; k < neighbors.size(); ++k) {
                 tmp = neighbors[k];
                 if (tmp->getCost() != -1 && !tmp->isVisit()) {
                     if (tmp == end) {
                         tmp->setCameFrom(current);
+                        end->setCameFrom(current);
                         tmp->setVisit(true);
                         allStates.push_back(tmp);
 
@@ -64,8 +66,10 @@ public:
             ++m_numOfNodes;
         }
 //printPath
-        return AlgoUtils<State*>::printPath(searchable.getInitialState(),
-                                   searchable.getGoalState());
+        AlgoUtils<State *>::ShortestPath(searchable.getInitialState(),
+                                         end);
+        return AlgoUtils<State *>::printPath(searchable.getInitialState(),
+                                             searchable.getGoalState());
 
     }
 

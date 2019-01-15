@@ -50,6 +50,7 @@ public:
             // if finds the goal - return and break.
             if (father == goal) {
                 //need to save to a vector and to sum the shortest path
+                open->clear_Priority_Queue();
                 return AlgoUtils<State *>::printPath(
                         searchable.getInitialState(),
                         goal);
@@ -96,7 +97,8 @@ public:
 
             }
         }
-
+        open->clear_Priority_Queue();
+        return "-1";
     }
 
 

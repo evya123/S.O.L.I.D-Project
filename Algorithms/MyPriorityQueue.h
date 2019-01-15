@@ -98,6 +98,12 @@ public:
         }
     }
 
+    void clear_Priority_Queue() {
+        m_priorityQueue = std::priority_queue<State *, std::vector<State *>, Compare>();
+
+    }
+
+
 };
 
 #endif //S_O_L_I_D_MYPRIORITYQUEUE_H
