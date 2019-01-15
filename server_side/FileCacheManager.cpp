@@ -30,17 +30,34 @@ server_side::FileCacheManager::~FileCacheManager() {
 
 }
 
-bool server_side::FileCacheManager::saveToFile(const std::string &filename) {
+bool server_side::FileCacheManager::saveToFile(const std::string &cacheFileName,const std::string &solutionFilename) {
     std::ofstream ofile;
-    ofile.open(filename.c_str());
+    ofile.open(cacheFileName.c_str());
+    std::ofstream solutionFile;
+    solutionFile.open(solutionFilename.c_str());
     if (!ofile)
         return false;           //file does not exist and cannot be created.
     auto iter = m_cacheMap.begin();
     for (iter; iter != m_cacheMap.end(); ++iter) {
-        ofile << iter->first << ":\n";
+        ofile << iter->first << "\n";
         for(std::string v : iter->second){
-            ofile<<v<<":\n";
+            solutionFile<<v<<"\n";
         }
     }
     return true;
+}
+
+bool server_side::FileCacheManager::loadFromFile(const std::string &filename) {
+    std::ifstream ifile;
+    try {
+        ifile.open(filename);
+    }
+    catch (const std::ifstream::failure &e) {
+        std::cerr << "Exception opening/reading file";
+    }
+    std::string details;
+    std::vector <std::string> v_str;
+//    while (ifile >> details)
+//        splitString(v_str, details, '|');
+//    return v_str;
 }

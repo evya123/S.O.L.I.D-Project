@@ -17,7 +17,7 @@ namespace server_side {
     class MyParallelServer : public Server {
     public:
         MyParallelServer(){
-            timeout.tv_sec = 100000;
+            timeout.tv_sec = 10;
             timeout.tv_usec = 0;
         }
         void open(int port) override;

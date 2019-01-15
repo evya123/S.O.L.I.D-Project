@@ -63,10 +63,9 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     if (sendToClient){
         args = m_lexer->FullLexer(buff);
         MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
-        std::vector<std::string> solutions;
-        solutions = m_solver->solve(problem);
-        m_cache->addAnswerAndQuestion(toMap,solutions);
-        for(std::string s : solutions){
+        returnVal ret = m_solver->solve(problem);
+        m_cache->addAnswerAndQuestion(toMap,ret.solutions);
+        for(std::string s : ret.matrix){
             sendFunc(s,newsockfd);
         }
     }
