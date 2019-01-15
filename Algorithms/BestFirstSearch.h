@@ -76,7 +76,6 @@ public:
                     neigh->setCameFrom(father);
                     neigh->setPathCost(pathCost);
                     open->push_Priority_Queue(neigh);
-                    ++numOfnodes;
                 }
                     /**
                      * else:
@@ -88,7 +87,6 @@ public:
                     // if its not in "open"
                     if (!open->isInPriorityQueue(neigh)) {
                         open->push_Priority_Queue(neigh);
-                        ++numOfnodes;
                         // if it's in "open"
                     } else {
                         open->Update_Priority_Queue(neigh, father);

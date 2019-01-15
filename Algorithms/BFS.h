@@ -19,7 +19,7 @@ public:
     std::string search(ISearchable<State *> &searchable) override {
         // vector of all the states (
         std::vector<State *> allStates;
-        // the
+        // the queue
         std::queue<State *> queue;
         State *current = searchable.getInitialState();
         State *end = searchable.getGoalState();
@@ -35,7 +35,7 @@ public:
             queue.pop();
             if (current == end) {
                 break;
-            }
+            }//takes all the neighbors
             neighbors = searchable.getAllPossibleStates(current->getPlace()
                                                                 .first,
                                                         current->getPlace()
@@ -49,8 +49,6 @@ public:
                         end->setCameFrom(current);
                         tmp->setVisit(true);
                         allStates.push_back(tmp);
-
-                        ++m_numOfNodes;
                         while (!queue.empty()) {
                             queue.pop();
                         }

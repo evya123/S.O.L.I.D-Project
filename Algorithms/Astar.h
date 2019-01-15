@@ -86,14 +86,12 @@ public:
                         neigh->setCameFrom(top);
                         neigh->setHeuristicCost(f_calc_hueristic(neigh, goal));
                         open->push_Priority_Queue(neigh);
-                        ++numOfnodes;
                     } else if (pathCost < neigh->getPathCost()) {
                         // if its not in "open"
                         if (!open->isInPriorityQueue(neigh)) {
                             neigh->setHeuristicCost(
                                     f_calc_hueristic(neigh, goal));
                             open->push_Priority_Queue(neigh);
-                            ++numOfnodes;
                             // if it's in "open"
                         } else {
                             neigh->setHeuristicCost(
