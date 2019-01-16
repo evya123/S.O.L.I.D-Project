@@ -43,6 +43,7 @@ bool server_side::FileCacheManager::saveToFile(const std::string &cacheFileName)
             ofile<<s;
         ofile<<"End"<<std::endl;
     }
+    ofile.close();
     return true;
 }
 
@@ -73,5 +74,6 @@ bool server_side::FileCacheManager::loadFromFile(const std::string &cacheFileNam
             key += line+"\n";
         }
     }
+    ifile.close();
     return true;
 }
