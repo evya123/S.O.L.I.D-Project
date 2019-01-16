@@ -15,7 +15,6 @@ using namespace server_side;
 
 
 void startHandle(int s, CacheManager<PART_A, PART_B> *f){
-    std::cout<<std::this_thread::get_id()<<std::endl;
     std::vector<ISearcher<State*>*> solvers {new BestFirstSearch,
                                              new DFS, new BFS,
                                              new Astar};
