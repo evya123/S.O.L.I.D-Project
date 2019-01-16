@@ -5,6 +5,8 @@
 #ifndef S_O_L_I_D_STATE_H
 #define S_O_L_I_D_STATE_H
 
+#include <utility>
+
 /**
  * State - with cost and the prev State (cameFrom)
  * @tparam T type of the State
@@ -92,7 +94,7 @@ public:
         m_heuristicCost = c;
     }
 
-    double getHeuristicCost() const{
+    double getHeuristicCost() const {
         return m_heuristicCost;
     }
 

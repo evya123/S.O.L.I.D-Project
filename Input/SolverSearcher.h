@@ -7,8 +7,9 @@
 
 #include <string>
 #include <map>
-#include "Algorithms/ISearcher.h"
+#include "../Algorithms/ISearcher.h"
 #include "Solver.h"
+#include "../Algorithms/MatrixSearcher.h"
 typedef struct returnVal{
     std::vector<std::string> matrix;
     std::vector<std::string> solutions;

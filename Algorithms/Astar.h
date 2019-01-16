@@ -71,7 +71,8 @@ public:
                 State *neigh;
                 std::vector<State *> neighbors = searchable.getAllPossibleStates
                         (top->getPlace().first, top->getPlace().second);
-                for (int k = 0; k < neighbors.size(); ++k) {
+                unsigned int ns = neighbors.size();
+                for (unsigned int k = 0; k < ns; ++k) {
                     neigh = neighbors[k];
                     if (neigh->getCost() == -1 ||
                         close.find(neigh) != close.end()) {

@@ -7,7 +7,7 @@
 
 #include <string>
 #include <unordered_map>
-#include <Algorithms/MatrixSearcher.h>
+#include "../Algorithms/MatrixSearcher.h"
 #include <mutex>
 #include "CacheManager.h"
 

@@ -6,17 +6,17 @@
 #define S_O_L_I_D_MYTESTCLIENTHANDLER_H
 
 #include "ClientHandler.h"
-#include "Input/Solver.h"
-#include "server_side/CacheManager.h"
-#include "server_side/FileCacheManager.h"
+#include "../Input/Solver.h"
+#include "../server_side/CacheManager.h"
+#include "../server_side/FileCacheManager.h"
 #include <unistd.h>
 #include <string>
 #include <cstring>
-#include "Input/SolverSearcher.h"
+#include "../Input/SolverSearcher.h"
 #include "FileCacheManager.h"
-#include "Algorithms/MatrixSearcher.h"
-#include "Input/LexerParser.h"
-#include "Algorithms/BFS.h"
+#include "../Algorithms/MatrixSearcher.h"
+#include "../Input/LexerParser.h"
+#include "../Algorithms/BFS.h"
 #include <sstream>
 #define POINTER_TO_STRING 0
 

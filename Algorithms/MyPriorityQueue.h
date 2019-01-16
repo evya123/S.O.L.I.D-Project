@@ -55,7 +55,8 @@ public:
             }
         }
         // return the states to the priority queue
-        for (int i = 0; i < tmpVec.size(); ++i) {
+        unsigned int vecSize= tmpVec.size();
+        for (unsigned int i = 0; i < vecSize; ++i) {
             push_Priority_Queue(tmpVec[i]);
         }
         return ret;
@@ -93,7 +94,8 @@ public:
             std::cout << top->getPathCost() << std::endl;
         }
         // return the states to the priority queue
-        for (int i = 0; i < tmpVec.size(); ++i) {
+        unsigned int vecSize = tmpVec.size();
+        for (unsigned int i = 0; i < vecSize; ++i) {
             push_Priority_Queue(tmpVec[i]);
         }
     }

@@ -61,7 +61,8 @@ public:
             std::vector<State *> neighbors = searchable.getAllPossibleStates
                     (father->getPlace().first, father->getPlace().second);
             double pathCost;
-            for (int k = 0; k < neighbors.size(); ++k) {
+            unsigned int ns = neighbors.size();
+            for (unsigned int k = 0; k < ns; ++k) {
                 /**
                 * for each neighbor that that not in open and not in close:
                 * 1. update his father to tmp

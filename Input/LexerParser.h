@@ -8,7 +8,7 @@
 #include <string>
 #include <vector>
 #include <list>
-#include "Algorithms/State.h"
+#include "../Algorithms/State.h"
 
 #define PAIR std::pair<int,int>
 //#define MATRIX_DEF State<std::pair<int,int>*>

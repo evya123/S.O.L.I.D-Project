@@ -12,7 +12,7 @@ namespace server_side{
     public:
         virtual bool isExist(const Question& item)= 0;
 
-        virtual Answer getAnswer(const std::string &question) const = 0;
+        virtual Answer getAnswer(const Question &question) const = 0;
 
         virtual bool addAnswerAndQuestion(const Question& question, const Answer& answer) = 0;
 

@@ -5,8 +5,10 @@
 #ifndef S_O_L_I_D_BFS_H
 #define S_O_L_I_D_BFS_H
 
+
 #include <queue>
-#include "Algorithms/AlgoUtils.h"
+#include "../Algorithms/AlgoUtils.h"
+#include "ISearcher.h"
 
 class BFS : public ISearcher<State *> {
 private:
@@ -43,7 +45,8 @@ public:
                                                         current->getPlace()
                                                                 .second);
             State *tmp;
-            for (int k = 0; k < neighbors.size(); ++k) {
+            unsigned int ns = neighbors.size();
+            for (unsigned int k = 0; k < ns; ++k) {
                 tmp = neighbors[k];
                 if (tmp->getCost() != -1 && !tmp->isVisit()) {
                     if (tmp == end) {
