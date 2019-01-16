@@ -21,12 +21,12 @@ public:
 
 class Astar : public ISearcher<State *> {
 private:
-    int numOfnodes;
+    int m_numOfnodes;
     // priority queue
     MyPriorityQueue<CompareStatesAstar> *open;
 public:
     Astar() {
-        numOfnodes = 0;
+        m_numOfnodes = 0;
         open = new MyPriorityQueue<CompareStatesAstar>();
     }
 
@@ -46,7 +46,7 @@ public:
         while (!open->isEmpty_Priority_Queue()) {
             // put the top in the Priority Queue
             top = open->Pop_Priority_Queue();
-            ++numOfnodes;
+            ++m_numOfnodes;
 
             // if the top is the goal - send to the user
             if (top->equals(goal)) {
@@ -112,7 +112,7 @@ public:
     int getNumberOfNodesEvaluated()
 
     override {
-        return numOfnodes;
+        return m_numOfnodes;
     }
 
     double f_calc_hueristic(State *current, State *goal) {

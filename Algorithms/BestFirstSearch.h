@@ -20,7 +20,7 @@ public:
 
 class BestFirstSearch : public ISearcher<State *> {
 private:
-    int numOfnodes;
+    int m_numOfnodes;
     // priority queue
     MyPriorityQueue<CompareStates> *open;
 
@@ -28,10 +28,11 @@ public:
 
     BestFirstSearch() {
         open = new MyPriorityQueue<CompareStates>();
-        numOfnodes = 0;
+        m_numOfnodes = 0;
     }
 
     std::string search(ISearchable<State *> &searchable) override {
+        m_numOfnodes = 0;
         // set
         std::unordered_set<State *> close;
         // insert the initial state to the priority queue
@@ -44,7 +45,7 @@ public:
         while (!open->isEmpty_Priority_Queue()) {
             // take from the priority queue the min
             father = open->Pop_Priority_Queue();
-            ++numOfnodes;
+            ++m_numOfnodes;
             // insert to the set the minimum
             close.insert(father);
             // if finds the goal - return and break.
@@ -104,7 +105,7 @@ public:
 
     override {
         return
-                numOfnodes;
+                m_numOfnodes;
     }
 
     ~BestFirstSearch() {
