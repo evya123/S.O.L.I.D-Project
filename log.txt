@@ -1,0 +1,623 @@
+commit dc97a615701e6a0a9a2cffeebed91a5a2a554c0f
+Merge: 66e838a 6c7d7e7
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 21:29:02 2019 +0200
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+
+commit 66e838a5fb6c458e90ebf1afdaf2ac572f475370
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 21:28:24 2019 +0200
+
+    finish! its finish its finish
+
+commit 6c7d7e7abaf510b8ae8d9469678adcde3a889ed1
+Author: evya123 <evya123@gmail.com>
+Date:   Wed Jan 16 11:27:23 2019 -0800
+
+    I promise this is the last timegit add .git add .git add . for real!
+
+commit b96b3c4ab0f1e59dedc7082791f0d95d7b749652
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 21:25:47 2019 +0200
+
+    finish!
+
+commit b807b2272b7f5dcaacf16071be329fc9bd6ac921
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 21:23:56 2019 +0200
+
+    finish!
+
+commit 78fadf37730678e04f924f6bf0037afe68ca6c32
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 19:08:21 2019 +0200
+
+    finish
+
+commit d2496cf6d74d35b7748140c3100103cfac713270
+Author: evya123 <evya123@gmail.com>
+Date:   Wed Jan 16 03:53:49 2019 -0800
+
+    Final Touch
+
+commit 1ef3da5e8a1ece19d492c8696de1ac63db5ca259
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 15:28:19 2019 -0800
+
+    Final touch, I promise!
+
+commit 085b0f4ba603f91a8377263de065ae06c7bd9cea
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 14:39:26 2019 -0800
+
+    Final touch
+
+commit 1a236bf7b00773810601a455d9f62f5ff26481bc
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 00:13:44 2019 +0200
+
+    num of nodes
+
+commit 40c24de3793b108839916e3b05675d8d42521225
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Wed Jan 16 00:10:36 2019 +0200
+
+    num of nodes
+
+commit 564f703770872a74f043dc67b3f5528c08e3674c
+Merge: 88693ac 3269fd2
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 12:49:34 2019 -0800
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+    
+    # Conflicts:
+    #       server_side/MyParallelServer.h
+
+commit 88693acedb0ab1d004ef4d2d9e2dc01d0e8cfb9f
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 12:49:03 2019 -0800
+
+    Added the option to read port from cmd
+
+commit 3269fd26cf17f64ff89c90b52b91f98fed3c8407
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Tue Jan 15 21:56:55 2019 +0200
+
+    A star
+
+commit 0f6f65824c271d8ae62b098d9e540da5c0639791
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 10:33:00 2019 -0800
+
+    Final touch
+
+commit 882a2deb228075e9a47005170e6a004347639288
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 15 09:35:27 2019 -0800
+
+    Final touch
+
+commit 6c7acacb96840edb8915a2fb459a117dccb9d169
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 01:54:42 2019 +0200
+
+    A star
+
+commit 789a775c8c48d39bb28213a9ed1a11fc12a5d4da
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 01:18:43 2019 +0200
+
+    A star
+
+commit 38b58c53a9360c83d506759ba084170c72d4bdc4
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 00:32:15 2019 +0200
+
+    A Star
+
+commit 73ab35a664c1d795bb562a938e3ea359a1a5d02f
+Author: evya123 <evya123@gmail.com>
+Date:   Mon Jan 14 14:18:46 2019 -0800
+
+    Added lambda exp build
+
+commit d9fa29e0b8e51ba8ba63605b4314049063aeacf2
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 00:14:57 2019 +0200
+
+    A Star
+
+commit 5a381e94ba12b136cdeb3d357b5cffd27117b18e
+Merge: 43eba58 f02cad4
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 00:11:17 2019 +0200
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+
+commit 43eba584bb71b7626e92fdad1bb48cd42b472813
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Tue Jan 15 00:10:46 2019 +0200
+
+    A Star
+
+commit f02cad4b5e507dfa490a26b9c5942316babbe0a6
+Author: evya123 <evya123@gmail.com>
+Date:   Mon Jan 14 11:32:56 2019 -0800
+
+    Checking bugs
+
+commit 46bac38b17adb3d66deea80237a858ee2bc9ff28
+Author: evya123 <evya123@gmail.com>
+Date:   Mon Jan 14 09:52:48 2019 -0800
+
+    Final changes
+
+commit 12e506883ef320edb3676ff5fff7c26701050a34
+Author: evya123 <evya123@gmail.com>
+Date:   Mon Jan 14 09:49:21 2019 -0800
+
+    Final changes
+
+commit bb8e416eb409c137bb1493d92959050df0b3b072
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 16:12:15 2019 -0800
+
+    nothing
+
+commit 77fa2d42fc4340bb33fa150c5e8ffcf01ed01541
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 16:05:21 2019 -0800
+
+    Added send result to client
+
+commit 855fa50557a1459216f8dffd5fbafe2cb20ee64b
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 14:55:35 2019 -0800
+
+    Modified All the Algo files
+
+commit e855e42a0cc046194cabfcf8f2ce0256c0385ff5
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Mon Jan 14 00:46:25 2019 +0200
+
+    A*
+
+commit 3f1a269bc825307dcd9425ec69b64870519cf5f0
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 23:13:47 2019 +0200
+
+    Best First Search
+
+commit 5298ef10019fc39d384981e9ee7a0088d6a28887
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 23:09:47 2019 +0200
+
+    DFS
+
+commit 5af7f64ea0241d57e336925fb2fc5114a45f897c
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 22:04:15 2019 +0200
+
+    Best First Search
+
+commit 15d922619e7b499169b4abcdba3b7c59fa0cf717
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 11:16:13 2019 -0800
+
+    noting
+
+commit 457f0b2f1287a8073f60441e0975de77894052ee
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 10:38:47 2019 -0800
+
+    noting
+
+commit 99ec6d886fc8c9992e795d1817d4d63d1d2ce8ba
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 18:39:12 2019 +0200
+
+    Priority Queue
+
+commit 24858acb58175b5851c6da459281fb9bd7b34c3d
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 07:29:44 2019 -0800
+
+    Modified files
+
+commit 201d43c802163369a6dd88bd29f487145747ea8c
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 16:54:36 2019 +0200
+
+    Priority Queue
+
+commit d4a40d2746c50b6c8a7de9d5fbb66460b899cdc8
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 05:19:55 2019 -0800
+
+    Done with solver
+
+commit 252fff5c1ad3f94eed2f0916614c7bd1fb1925cf
+Merge: 5584e2f 56ccda4
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 05:18:22 2019 -0800
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+    
+    # Conflicts:
+    #       Algorithms/AlgoUtils.cpp
+
+commit 5584e2fedd29f123240fde88b51f93002ba7c034
+Merge: ae6b39a 79b1199
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 05:16:53 2019 -0800
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+    
+    # Conflicts:
+    #       Algorithms/BFS.h
+
+commit 56ccda4f99a8c550c03fb566065eaf3c9c0ed855
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 15:16:49 2019 +0200
+
+    BFS
+
+commit ae6b39a8ac9f266433a5f148639214bba914af97
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 05:15:54 2019 -0800
+
+    Done with solver
+
+commit 79b119954b1033819a1926ffc49597170af450c3
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 13:46:19 2019 +0200
+
+    BFS
+
+commit cad9332e75867f199ffd7d10fb82f2db6cb80fd5
+Author: evya123 <evya123@gmail.com>
+Date:   Sun Jan 13 02:26:19 2019 -0800
+
+    Done with DFS
+
+commit 28ff1b01ad082f4200131fb9f7c0a966c1cd2fa8
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sun Jan 13 01:21:34 2019 +0200
+
+    BFS
+
+commit 72d5a84c1fee31621901320ef63fee4c77a15782
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 21:53:15 2019 +0200
+
+    BFS
+
+commit 3f5b08ca4c299d0e4ddda18a00ecbf3123529707
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 20:09:41 2019 +0200
+
+    BFS
+
+commit 97412c5808fd880e2e619cb1799074e56fb10ee4
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 20:06:54 2019 +0200
+
+    BFS
+
+commit b6c551af64ff642213fb7fcb169eb83bae22aaf8
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 09:22:38 2019 -0800
+
+    Revert
+
+commit 697d763fffcf258a3730b37e0c99bd859909872b
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 09:19:36 2019 -0800
+
+    Made searchable iterable
+
+commit 2e0f21792e83f1bbc5a85618f431d5f9ada3ee96
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 19:07:32 2019 +0200
+
+    BFS
+
+commit 5e5cd2b4e1e8d8b579f11168792478008b4668e4
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 09:00:28 2019 -0800
+
+    Make iterable
+
+commit 0f7f770f1b6401d97d2875365a7bd288610965a6
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 18:00:40 2019 +0200
+
+    changes in the structure (pointers etc.)
+
+commit 3f29053d5d5cd051055bdeb4c45bb7cedf586258
+Merge: 4346e1b 2f2e08b
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 17:52:14 2019 +0200
+
+    Merge remote-tracking branch 'origin/master'
+    
+    # Conflicts:
+    #       Algorithms/MatrixSearcher.h
+
+commit 2f2e08b0018a06c39dfac0706b567e77157d3313
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 07:50:50 2019 -0800
+
+    Deleted files
+
+commit 4346e1b168060bfdc7b830685c9a995a4e7c16d2
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 17:50:05 2019 +0200
+
+    changes in the structure (pointers etc.)
+
+commit 3f0dfe1acb8a67620e068d44b97664e4f41281a0
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 16:10:23 2019 +0200
+
+    lexer
+
+commit c0887896fd0b30405dbf4fdf27195eeb82806bdd
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 15:52:05 2019 +0200
+
+    lexer
+
+commit b7932ad10e3c5d7f62d2f3e475a9e294c14dc28c
+Merge: 9b95765 9cd14a3
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 05:45:43 2019 -0800
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+    
+    # Conflicts:
+    #       server_side/MyTestClientHandler.cpp
+
+commit 9b95765650281b4dd979e44e7dea018e1aa84a31
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 05:44:56 2019 -0800
+
+    Modified generic flow
+
+commit 9cd14a38244e6b51ca63afdc438dcbcaadf3ff15
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 15:29:59 2019 +0200
+
+    lexer
+
+commit 129b61e540ae9689e59f09f506c68fbaff210423
+Author: evya123 <evya123@gmail.com>
+Date:   Sat Jan 12 05:10:00 2019 -0800
+
+    Modified MatrixSearcher to be non template
+
+commit 7299c888b6376deb9808afc64571833c1ca5bb77
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 03:42:45 2019 +0200
+
+    bug fixes
+
+commit 6d71296d67ea4526dc07567a4999ada853808cc7
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 03:14:19 2019 +0200
+
+    BFS
+
+commit eb839b8e4c9f53f5047ef155714e921163c838ee
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 03:10:42 2019 +0200
+
+    BFS
+
+commit cb2047643a83ab5fb1c7024ee9f6c0f84f266839
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 02:35:11 2019 +0200
+
+    BFS
+
+commit e615f85920807518cb8fa7630ba84a8147368e33
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 02:24:30 2019 +0200
+
+    Searchable
+
+commit 8fec263c306c0c877b53fdd80305e43fcf810207
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Sat Jan 12 01:32:03 2019 +0200
+
+    Generalization
+
+commit a6d11abff58f0e5ebe57449194ec43debd564bf2
+Author: evya123 <evya123@gmail.com>
+Date:   Fri Jan 11 10:26:39 2019 -0800
+
+    Changed FileCacheManager
+
+commit ee2156ded3c37cc0ff1c45d8984e62bb84f1546d
+Author: evya123 <evya123@gmail.com>
+Date:   Fri Jan 11 07:08:21 2019 -0800
+
+    Modified MyTestClientHandler.cpp
+
+commit d0bc33f23ae5b4ec1e92c20d1dd5ea5e041ea522
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 17:05:46 2019 +0200
+
+    Lexer
+
+commit 3486b3676cdfb5b240ba326e6a9ff2bfe22206d7
+Author: evya123 <evya123@gmail.com>
+Date:   Fri Jan 11 07:04:19 2019 -0800
+
+    fixed untracked files
+
+commit 7dc543283cea59b7e6b663db511bd8cdc59e72ae
+Author: evya123 <evya123@gmail.com>
+Date:   Fri Jan 11 07:01:52 2019 -0800
+
+    nothing
+
+commit 54194599c2e09fc8019ad72b8df2c6e2bb947955
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 16:53:07 2019 +0200
+
+    Lexer
+
+commit e876dfbc1e2a8e1c6e277aaa44904c4b36edfa97
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 15:03:08 2019 +0200
+
+    Lexer
+
+commit 78dc257897804752bd62b11caebfb93ae2b7d214
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 13:00:24 2019 +0200
+
+    Lexer
+
+commit 21cf904849ed8eabbb9cd9167634c394214b124f
+Author: evya123 <evya123@gmail.com>
+Date:   Fri Jan 11 02:56:58 2019 -0800
+
+    Added logic to MyTestClientHandler. Modified SolverSearcher, Solver
+
+commit 1a526ee3a25a8d2670ff070b5c0edd91a5a047c1
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 11:54:20 2019 +0200
+
+    Lexer
+
+commit 417abf8293144d3fa5a970c2b8b7f853ab9b40dd
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 11:43:40 2019 +0200
+
+    Lexer
+
+commit b6f293e8b49e7991c7d74907a1ab077193b8653f
+Author: Lidor115 <lidor115@gmail.com>
+Date:   Fri Jan 11 11:40:43 2019 +0200
+
+    Lexer
+
+commit 3ce15181ef2f0e90c9d8ba2b6486c7dea99fb13c
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Thu Jan 10 23:06:44 2019 +0200
+
+    Matrix Searcher
+
+commit 3380fefa2f7e12c055b320d4473adf588ecbe0d4
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 10 09:27:05 2019 -0800
+
+    Added SolverSearcher, modified  some classes
+
+commit 9a7d76dee0d5a8d39bcdfd7304cae095413e3025
+Merge: f3d0861 9441d7b
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Thu Jan 10 19:25:27 2019 +0200
+
+    Merge remote-tracking branch 'origin/master'
+
+commit f3d08612ad652625e66423de5e3236596ffe2322
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Thu Jan 10 19:24:06 2019 +0200
+
+    Matrix, searcher and state
+
+commit 9441d7bc695115975c2c865f7012a1a427e2ccb3
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 10 09:11:22 2019 -0800
+
+    Added SolverSearcher, modified  some classes
+
+commit 8857b03aa7dc62749ed97950601ce72ebcaf7293
+Merge: f56aaf5 059afb5
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 10 04:56:16 2019 -0800
+
+    Merge branch 'master' of https://github.com/evya123/S.O.L.I.D-Project
+
+commit f56aaf5415d2f34f58303c1aa28cca60a7dc7f7f
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 10 04:56:00 2019 -0800
+
+    Modified servers
+
+commit 059afb5e2211bdb1ce9c49521a60ca1895502063
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Tue Jan 8 21:09:13 2019 +0200
+
+    Searchable , state, and interfaces
+
+commit bcaadd3b7c99885a129549310135fa0540f5fb87
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 8 07:55:53 2019 -0800
+
+    Changed SerialServer to ParallelServer
+
+commit 661ea24998c2df4e8749be7fa97c60094d0f14e3
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 8 07:21:25 2019 -0800
+
+    Added Timeout error class
+
+commit ad09de24dc10e800740a1b9731b51fb99fd82445
+Author: evya123 <evya123@gmail.com>
+Date:   Tue Jan 8 07:06:31 2019 -0800
+
+    Modified server_side as a namespace
+
+commit 4d27e7a6bc34a2893c70ec7b1b8f9bf9adb3eaff
+Author: evya123 <evya123@gmail.com>
+Date:   Mon Jan 7 10:46:04 2019 -0800
+
+    TcpServer.cpp
+
+commit 9f2b10d0a2bc3097488fd3b14b53ed027c02b97c
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 3 08:55:36 2019 -0800
+
+    Added TcpServer class
+
+commit 6026757c4d40181a04daacc2b36e8200b69998f9
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 3 08:15:31 2019 -0800
+
+    Modified FileCacheManager
+
+commit f81e1a88e7776825ac2e4a3a10ef14b44afd0947
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 3 08:02:40 2019 -0800
+
+    Modified StringReverse::solve
+
+commit 113c5df33d25e4d5b15fcabad81983e7bbdd97dc
+Author: Evyatar Shtern <evya123@gmail.com>
+Date:   Thu Jan 3 07:37:04 2019 -0800
+
+    Delete Cmake
+
+commit c9f6bf023b2d4016717e6f2327c7bcd79d374649
+Author: Lidor Elias <lidor115@gmail.com>
+Date:   Thu Jan 3 17:31:34 2019 +0200
+
+    opening classes and interfaces
+
+commit 8fbbbe1a2cd25a665c8c55d53b0558c645fefabf
+Author: evya123 <evya123@gmail.com>
+Date:   Thu Jan 3 05:59:50 2019 -0800
+
+    First commit
+
+commit 75b6175e50eb98454212125c4bc4c12489bfc057
+Author: Evyatar Shtern <evya123@gmail.com>
+Date:   Thu Jan 3 15:46:13 2019 +0200
+
+    Initial commit

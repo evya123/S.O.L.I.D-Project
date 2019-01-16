@@ -8,6 +8,8 @@
 #include "ThreadPool.h"
 #define PORT 1
 #define NUM_OF_THREADS 10
+#define FILE_NAME "Success.txt"
+
 typedef std::string PART_A;
 typedef std::vector<std::string> PART_B;
 
@@ -26,6 +28,7 @@ int main(int argc, char *argv[]) {
 
 
     FileCacheManager* cache = new FileCacheManager();
+    cache->loadFromFile(FILE_NAME,cache);
     MyParallelServer ps;
     std::vector<ISearcher<State*>*> solvers {nullptr, nullptr, nullptr,
                                              nullptr};
