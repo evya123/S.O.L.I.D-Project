@@ -12,7 +12,7 @@
 #include "AlgoUtils.h"
 #include <algorithm>
 #include <list>
-typedef std::vector<std::vector<State *>>::iterator MatrixIter;
+
 
 class MatrixSearcher : public ISearchable<State *> {
 private:

@@ -15,26 +15,21 @@ typedef struct returnVal{
 
 }returnVal;
 class SolverSearcher
-        : public Solver<MatrixSearcher&, returnVal> {
+        : public Solver<MatrixSearcher&, std::vector<std::string>> {
 private:
     std::vector<ISearcher<State*>*> m_bankOfSolvers;
 public:
     SolverSearcher(std::vector<ISearcher<State*>*>& solvers){ m_bankOfSolvers = solvers;};
 
-    returnVal solve(MatrixSearcher &problem) override {
+    std::vector<std::string> solve(MatrixSearcher &problem) override {
         std::vector<std::string> retMatrix;
-        std::vector<std::string> ret;
         for(ISearcher<State*>* i : m_bankOfSolvers){
             problem.resetVisited();
             std::string tmp = i->search(problem);
             retMatrix.push_back(tmp);
-            ret.emplace_back(std::to_string(i->getNumberOfNodesEvaluated())+":"
-            + std::to_string(problem.getGoalState()->getPathCost()));
         }
-        returnVal r;
-        r.matrix = retMatrix;
-        r.solutions = ret;
-        return r;
+
+        return retMatrix;
     }
 
     ~SolverSearcher() override {

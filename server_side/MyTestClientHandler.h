@@ -38,7 +38,7 @@ namespace server_side {
         ~MyTestClientHandler() override;
 
     private:
-        Solver<MatrixSearcher&, returnVal> *m_solver;
+        Solver<MatrixSearcher&, std::vector<std::string>> *m_solver;
         CacheManager<std::string,std::vector<std::string>> *m_cache;
         LexerParser *m_lexer;
     };

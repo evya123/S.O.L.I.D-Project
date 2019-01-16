@@ -25,9 +25,9 @@ namespace server_side {
 
         bool addAnswerAndQuestion(const std::string &question, const std::vector<std::string>& value) override;
 
-        bool saveToFile(const std::string &cacheFileName,const std::string &solutionFilename);
+        bool saveToFile(const std::string &cacheFileName);
 
-        bool loadFromFile(const std::string &cacheFileName);
+        bool loadFromFile(const std::string &cacheFileName, FileCacheManager* f);
 
         ~FileCacheManager() override;
     };

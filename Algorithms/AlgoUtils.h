@@ -11,12 +11,8 @@
 #include "ISearchable.h"
 #include "State.h"
 
-#define MATRIX_DEF State*
-auto set = [](State *s) { s->setVisit(false); };
 
-auto setVecToFalse = [](std::vector<State *> &vec) {
-    std::for_each(vec.begin(), vec.end(), set);
-};
+auto set = [](State *s) { s->setVisit(false); };
 
 template<class T>
 class AlgoUtils {
@@ -68,9 +64,7 @@ public:
         //begin;
         s += current->getCost();
         end->setPathCost(s);
-        std::cout << "num ofPath : " << end->getPathCost() << std::endl;
     }
 };
-
 
 #endif //S_O_L_I_D_ALGOUTILS_H

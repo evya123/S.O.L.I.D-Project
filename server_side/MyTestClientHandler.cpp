@@ -29,15 +29,16 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
         }
         toMap += line;
         smallBuff += line;
-        if(smallBuff.empty())
-            if (toMap.find("end") == std::string::npos)
+        if(smallBuff.empty()) {
+            if (toMap.find("end") == std::string::npos) {
                 break;
-            else
-                std::cout<<"There is a problem"<<std::endl;
+            } else {
+                std::cout << "There is a problem" << std::endl;
+            }
+        }
     } while(smallBuff.find("end") == std::string::npos);
 
-
-
+    toMap.erase(remove(toMap.begin(), toMap.end(), ' '), toMap.end());
     MatrixArgs args;
     bool sendToClient = true;
     if (m_cache->isExist(toMap)){
@@ -63,10 +64,9 @@ void server_side::MyTestClientHandler::handleClient(int sockID) {
     if (sendToClient){
         args = m_lexer->FullLexer(buff);
         MatrixSearcher problem(args.matrix,args.startPos,args.goalPos);
-        returnVal ret = m_solver->solve(problem);
-        m_cache->addAnswerAndQuestion(toMap,ret.matrix);
-        m_cache->addAnswerAndQuestion("-",ret.solutions);
-        for(std::string s : ret.solutions){
+        std::vector<std::string> solution = m_solver->solve(problem);
+        m_cache->addAnswerAndQuestion(toMap,solution);
+        for(std::string s : solution){
             sendFunc(s,newsockfd);
         }
     }
